@@ -564,47 +564,50 @@ function slide6(pres) {
   bottomBar(s);
 }
 
-// ── Slide 7: Budapest Overview ────────────────────────────────────────────────
+// ── MADRID ACCENT COLOR ───────────────────────────────────────────────────────
+const MAD = 'E6321E'; // Spanish red
+
+// ── Slide 7: Madrid Overview ──────────────────────────────────────────────────
 function slide7(pres) {
   const s = pres.addSlide();
   s.background = { color: C.bg };
-  sectionHeader(s, '🇭🇺  DESTINATION 2 — BUDAPEST, HUNGARY', C.amber);
+  sectionHeader(s, '🇪🇸  DESTINATION 2 — MADRID, SPAIN', MAD);
 
-  s.addImage({ path: path.join(IMG, 'budapest_hero.png'), x: 0, y: 0.83, w: 7.0, h: 5.4 });
+  s.addImage({ path: path.join(IMG, 'madrid_hero.png'), x: 0, y: 0.83, w: 7.0, h: 5.4 });
   s.addShape('rect', { x: 5.8, y: 0.83, w: 1.2, h: 5.4, fill: { color: C.bg }, line: { color: C.bg }, transparency: 20 });
 
   const rx = 7.2;
-  s.addText('Ruin Bar Capital of the World', {
+  s.addText('The City That Never Sleeps — Literally', {
     x: rx, y: 0.95, w: 5.9, h: 0.45,
-    fontSize: 16, fontFace: 'Trebuchet MS', bold: true, color: C.amber,
+    fontSize: 16, fontFace: 'Trebuchet MS', bold: true, color: MAD,
   });
-  s.addText('District VII  ·  Szimpla Kert  ·  Thermal Baths  ·  Parliament at Night', {
+  s.addText('Malasaña  ·  Chueca  ·  Gran Vía  ·  La Latina tapas  ·  Clubs till 7 AM', {
     x: rx, y: 1.38, w: 5.9, h: 0.32,
     fontSize: 10, fontFace: 'Calibri', color: C.gray, italic: true,
   });
 
   const stats = [
-    ['✈ Flight', '1h 45m\nfrom DTM'],
-    ['🍺 Beer', '€1.25–4.50\navg per pint'],
-    ['🌡 Weather', '5–12°C\nlate October'],
-    ['💰 Trip est.', '~€550\nper person'],
-    ['🏙 Nightlife', '⭐⭐⭐⭐⭐\nRuin Bar Gold'],
-    ['📍 Fly from', 'DTM or DUS\n(Wizz/Eurowings)'],
+    ['✈ Flight', '2h 30m\nfrom DUS'],
+    ['🍺 Beer', '€2 – €4\ncaña or tubo'],
+    ['🌡 Weather', '18–20°C ☀\nlate October'],
+    ['💰 Trip est.', '~€712\nper person'],
+    ['🏙 Nightlife', '⭐⭐⭐⭐⭐\nClubs till 7 AM'],
+    ['📍 Fly from', 'DUS only\n(Iberia/Eurowings)'],
   ];
   let si = 0;
   for (let row = 0; row < 2; row++) {
     for (let col = 0; col < 3; col++) {
-      statBox(s, rx + col * 1.98, 1.85 + row * 1.35, 1.85, 1.2, stats[si][0], stats[si][1], C.amber);
+      statBox(s, rx + col * 1.98, 1.85 + row * 1.35, 1.85, 1.2, stats[si][0], stats[si][1], MAD);
       si++;
     }
   }
 
   s.addShape('rect', { x: rx, y: 4.65, w: 5.9, h: 1.55, fill: { color: C.bgCard }, line: { color: C.bgDeep, pt: 1 }, rounding: 0.04 });
   s.addText(
-    'Budapest is Europe\'s undisputed ruin bar capital — abandoned courtyards turned into labyrinthine ' +
-    'multi-room bars open till 6 AM. At Halloween, District VII goes completely wild with costumes, ' +
-    'themed events at every venue, and zero cover charges. The city is 30–40% cheaper than Lisbon. ' +
-    'Thermal baths the morning after? Genuinely spectacular.',
+    'Madrid is the warmest Halloween in Europe. Oct 31 is a Friday AND Nov 1 is a Spanish public holiday — ' +
+    'meaning absolutely everyone is out and clubs stay open until 7 AM. ' +
+    'Malasaña\'s bohemian bar scene, free tapas at El Tigre, vermouth on tap at 150-year-old bodegas, ' +
+    'and Teatro Kapital\'s 7-floor nightclub. T-shirt weather guaranteed.',
     {
       x: rx + 0.15, y: 4.75, w: 5.6, h: 1.35,
       fontSize: 10.5, fontFace: 'Calibri', color: C.offWhite, wrap: true, valign: 'top',
@@ -614,25 +617,25 @@ function slide7(pres) {
   bottomBar(s);
 }
 
-// ── Slide 8: Budapest Flights ─────────────────────────────────────────────────
+// ── Slide 8: Madrid Flights ───────────────────────────────────────────────────
 function slide8(pres) {
   const s = pres.addSlide();
   s.background = { color: C.bg };
-  sectionHeader(s, '🇭🇺  BUDAPEST — FLIGHTS', C.amber);
+  sectionHeader(s, '🇪🇸  MADRID — FLIGHTS', MAD);
 
-  const hO = { bold: true, color: C.amber, fontSize: 11, fontFace: 'Trebuchet MS', fill: { color: C.bgDeep }, align: 'center' };
+  const hO = { bold: true, color: MAD, fontSize: 11, fontFace: 'Trebuchet MS', fill: { color: C.bgDeep }, align: 'center' };
   const rO  = { color: C.offWhite, fontSize: 10, fontFace: 'Calibri', fill: { color: C.bgCard }, align: 'center' };
   const rA  = { ...rO, fill: { color: C.bg } };
 
-  s.addText('OUTBOUND: Germany → Budapest (BUD)', {
+  s.addText('OUTBOUND: Germany → Madrid (MAD / Barajas)', {
     x: 0.4, y: 1.0, w: 12.5, h: 0.35,
-    fontSize: 13, fontFace: 'Trebuchet MS', bold: true, color: C.amber,
+    fontSize: 13, fontFace: 'Trebuchet MS', bold: true, color: MAD,
   });
 
   s.addTable([
     [
       { text: 'Option', options: hO },
-      { text: 'Flight', options: hO },
+      { text: 'Airline', options: hO },
       { text: 'Route & Date', options: hO },
       { text: 'Departure', options: hO },
       { text: 'Arrival', options: hO },
@@ -642,43 +645,43 @@ function slide8(pres) {
     ],
     [
       { text: '⭐ Best\nEve. Oct 29', options: { ...rO, color: C.green, bold: true } },
-      { text: 'W62292\nWizz Air', options: rO },
-      { text: 'DTM → BUD\nOct 29 evening', options: rO },
-      { text: '16:10', options: rO },
-      { text: '17:55', options: rO },
-      { text: '1h 45m', options: rO },
-      { text: '~€75', options: rO },
-      { text: '~€300', options: { ...rO, color: C.orange, bold: true } },
+      { text: 'Iberia\n(IB3166)', options: rO },
+      { text: 'DUS → MAD\nOct 29 evening', options: rO },
+      { text: '~19:55', options: rO },
+      { text: '~22:35', options: rO },
+      { text: '2h 30m', options: rO },
+      { text: '~€95', options: rO },
+      { text: '~€380', options: { ...rO, color: C.orange, bold: true } },
     ],
     [
-      { text: 'Oct 30\nMorning', options: rA },
-      { text: 'W62292\nWizz Air', options: rA },
-      { text: 'DTM → BUD\nOct 30', options: rA },
-      { text: 'AM slot', options: rA },
-      { text: 'AM +1h45', options: rA },
-      { text: '1h 45m', options: rA },
-      { text: '~€65', options: rA },
-      { text: '~€260', options: { ...rA, color: C.green, bold: true } },
+      { text: 'Early Oct 30', options: rA },
+      { text: 'Iberia\n(IB3162)', options: rA },
+      { text: 'DUS → MAD\nOct 30 morning', options: rA },
+      { text: '~06:20', options: rA },
+      { text: '~08:50', options: rA },
+      { text: '2h 30m', options: rA },
+      { text: '~€75', options: rA },
+      { text: '~€300', options: { ...rA, color: C.green, bold: true } },
     ],
     [
-      { text: 'Alt: DUS', options: rO },
-      { text: 'EW9784\nEurowings', options: rO },
-      { text: 'DUS → BUD\nOct 29 evening', options: rO },
-      { text: '17:45', options: rO },
-      { text: '19:30', options: rO },
-      { text: '1h 50m', options: rO },
-      { text: '~€80', options: rO },
-      { text: '~€320', options: { ...rO, color: C.amber, bold: true } },
+      { text: 'Midday Oct 30', options: rO },
+      { text: 'Eurowings\n(EW)', options: rO },
+      { text: 'DUS → MAD\nOct 30 midday', options: rO },
+      { text: '~13:xx', options: rO },
+      { text: '~15:30', options: rO },
+      { text: '2h 30m', options: rO },
+      { text: '~€90', options: rO },
+      { text: '~€360', options: { ...rO, color: C.amber, bold: true } },
     ],
     [
-      { text: 'Early DUS', options: rA },
-      { text: 'EW9782\nEurowings', options: rA },
-      { text: 'DUS → BUD\nOct 30 early', options: rA },
-      { text: '06:35', options: rA },
-      { text: '08:20', options: rA },
-      { text: '1h 45m', options: rA },
-      { text: '~€60', options: rA },
-      { text: '~€240', options: { ...rA, color: C.green, bold: true } },
+      { text: 'Premium', options: rA },
+      { text: 'Vueling\n(VY)', options: rA },
+      { text: 'DUS → MAD\nOct 30', options: rA },
+      { text: 'Various', options: rA },
+      { text: 'Various', options: rA },
+      { text: '2h 30m', options: rA },
+      { text: '€100–130', options: rA },
+      { text: '€400–520', options: rA },
     ],
   ], {
     x: 0.4, y: 1.38, w: 12.5,
@@ -687,9 +690,9 @@ function slide8(pres) {
     border: { type: 'solid', pt: 1, color: C.bgDeep },
   });
 
-  s.addText('RETURN: Budapest → Germany (Nov 2)', {
+  s.addText('RETURN: Madrid → Germany (Nov 2)', {
     x: 0.4, y: 4.35, w: 12.5, h: 0.35,
-    fontSize: 13, fontFace: 'Trebuchet MS', bold: true, color: C.amber,
+    fontSize: 13, fontFace: 'Trebuchet MS', bold: true, color: MAD,
   });
 
   s.addTable([
@@ -703,13 +706,13 @@ function slide8(pres) {
       { text: 'Total (×4)', options: { ...hO, color: C.orange } },
     ],
     [
-      { text: 'W62291  Wizz Air  (BUD→DTM)', options: { ...rO, color: C.green } },
-      { text: 'BUD → DTM  /  Nov 2', options: rO },
-      { text: '10:40', options: rO },
-      { text: '12:35', options: rO },
-      { text: '1h 55m', options: rO },
-      { text: '~€60', options: rO },
-      { text: '~€240', options: { ...rO, color: C.amber, bold: true } },
+      { text: 'Iberia / Eurowings  (MAD→DUS)', options: { ...rO, color: C.green } },
+      { text: 'MAD → DUS  /  Nov 2', options: rO },
+      { text: 'Various', options: rO },
+      { text: 'Various', options: rO },
+      { text: '2h 40m', options: rO },
+      { text: '~€70–90', options: rO },
+      { text: '~€280–360', options: { ...rO, color: C.amber, bold: true } },
     ],
   ], {
     x: 0.4, y: 4.72, w: 12.5,
@@ -720,46 +723,46 @@ function slide8(pres) {
 
   s.addShape('rect', { x: 0.4, y: 5.44, w: 12.5, h: 0.65, fill: { color: C.bgCard }, line: { color: C.bgDeep }, rounding: 0.04 });
   s.addText(
-    '✅  ADVANTAGE: Both DTM (Dortmund) AND DUS (Düsseldorf) have direct Budapest service — far more flexibility than Lisbon.  ' +
-    'Wizz Air from DTM is cheapest.  Eurowings from DUS offers more schedule options.  ' +
-    'Book at wizzair.com or eurowings.com  ·  Compare on skyscanner.net',
+    'ℹ  DUS (Düsseldorf) is the recommended airport — direct flights with Iberia (3×/day), Eurowings & Vueling.  ' +
+    'DTM (Dortmund) has no direct Madrid service.  FMO requires connections.  ' +
+    'Book at iberia.com · eurowings.com · kayak.com  ·  Airport to city centre: Metro Line 8 (€5) or taxi (~€35 fixed)',
     {
       x: 0.55, y: 5.48, w: 12.2, h: 0.6,
       fontSize: 10, fontFace: 'Calibri', color: C.gray, wrap: true, valign: 'middle',
     }
   );
 
-  s.addShape('rect', { x: 8.5, y: 6.2, w: 4.4, h: 0.9, fill: { color: C.bgDeep }, line: { color: C.amber, pt: 2 }, rounding: 0.06 });
+  s.addShape('rect', { x: 8.5, y: 6.2, w: 4.4, h: 0.9, fill: { color: C.bgDeep }, line: { color: MAD, pt: 2 }, rounding: 0.06 });
   s.addText('Round Trip · 4 Persons', { x: 8.5, y: 6.22, w: 4.4, h: 0.32, align: 'center', fontSize: 10, fontFace: 'Calibri', color: C.gray });
-  s.addText('€500 – €560 total', { x: 8.5, y: 6.52, w: 4.4, h: 0.52, align: 'center', fontSize: 20, fontFace: 'Trebuchet MS', bold: true, color: C.amber });
+  s.addText('€580 – €740 total', { x: 8.5, y: 6.52, w: 4.4, h: 0.52, align: 'center', fontSize: 20, fontFace: 'Trebuchet MS', bold: true, color: MAD });
 
   bottomBar(s);
 }
 
-// ── Slide 9: Budapest Airbnb ──────────────────────────────────────────────────
+// ── Slide 9: Madrid Airbnb ────────────────────────────────────────────────────
 function slide9(pres) {
   const s = pres.addSlide();
   s.background = { color: C.bg };
-  sectionHeader(s, '🇭🇺  BUDAPEST — ACCOMMODATION', C.amber);
+  sectionHeader(s, '🇪🇸  MADRID — ACCOMMODATION', MAD);
 
-  s.addImage({ path: path.join(IMG, 'budapest_airbnb.png'), x: 0, y: 0.83, w: 5.5, h: 3.4 });
-  s.addImage({ path: path.join(IMG, 'budapest_map.png'), x: 0, y: 4.28, w: 5.5, h: 2.3 });
+  s.addImage({ path: path.join(IMG, 'madrid_airbnb.png'), x: 0, y: 0.83, w: 5.5, h: 3.4 });
+  s.addImage({ path: path.join(IMG, 'madrid_map.png'), x: 0, y: 4.28, w: 5.5, h: 2.3 });
 
   const rx = 5.8;
 
-  s.addShape('rect', { x: rx, y: 0.9, w: 7.3, h: 0.55, fill: { color: C.bgDeep }, line: { color: C.amber, pt: 1.5 }, rounding: 0.04 });
-  s.addText('District VII — 2 Bedroom · Balcony · Opera 10 min walk', {
+  s.addShape('rect', { x: rx, y: 0.9, w: 7.3, h: 0.55, fill: { color: C.bgDeep }, line: { color: MAD, pt: 1.5 }, rounding: 0.04 });
+  s.addText('Sonder Malasaña — 2 Bedroom · Balcony · Nightlife on the Doorstep', {
     x: rx + 0.15, y: 0.9, w: 7.0, h: 0.55,
     fontSize: 14, fontFace: 'Trebuchet MS', bold: true, color: C.white, valign: 'middle',
   });
 
   const specs = [
-    ['🛏  2 Bedrooms', C.bgDeep, C.amber],
-    ['🚿  1 Bathroom', C.bgDeep, C.amber],
+    ['🛏  2 Bedrooms', C.bgDeep, MAD],
+    ['🚿  2 Bathrooms', C.bgDeep, MAD],
     ['🏗  Balcony  ✓', C.bgDeep, C.green],
-    ['👥  Sleeps 4', C.bgDeep, C.amber],
-    ['❄  A/C  ✓', C.bgDeep, C.amber],
-    ['🎭  Ruin Bars 5min', C.bgDeep, C.orange],
+    ['👥  Sleeps 4', C.bgDeep, MAD],
+    ['❄  A/C  ✓', C.bgDeep, MAD],
+    ['🎸  Malasaña bars', C.bgDeep, C.orange],
   ];
   specs.forEach((spec, i) => {
     const bx = rx + (i % 3) * 2.45;
@@ -769,42 +772,42 @@ function slide9(pres) {
   });
 
   s.addShape('rect', { x: rx, y: 2.74, w: 7.3, h: 0.55, fill: { color: C.bgCard }, line: { color: C.bgDeep }, rounding: 0.04 });
-  s.addText('📌  District VII (Erzsébetváros) — steps from Szimpla Kert, Instant-Fogas, Mazel Tov', {
+  s.addText('📌  Malasaña — 1 min to Calle de la Palma bars, 5 min to Gran Vía, 10 min to Puerta del Sol', {
     x: rx + 0.1, y: 2.74, w: 7.1, h: 0.55,
     fontSize: 10.5, fontFace: 'Calibri', color: C.gray, valign: 'middle',
   });
 
-  s.addShape('rect', { x: rx, y: 3.4, w: 7.3, h: 1.5, fill: { color: C.bgCard }, line: { color: C.amber, pt: 1.5 }, rounding: 0.04 });
+  s.addShape('rect', { x: rx, y: 3.4, w: 7.3, h: 1.5, fill: { color: C.bgCard }, line: { color: MAD, pt: 1.5 }, rounding: 0.04 });
   s.addText('PRICING  (Oct 30 – Nov 2, 3 nights)', {
     x: rx + 0.2, y: 3.46, w: 7.0, h: 0.32,
-    fontSize: 11, fontFace: 'Trebuchet MS', bold: true, color: C.amber,
+    fontSize: 11, fontFace: 'Trebuchet MS', bold: true, color: MAD,
   });
 
   const priceRows = [
-    ['Per night', '~€100'],
-    ['3 nights subtotal', '~€300'],
-    ['Cleaning + fees', '~€50–70'],
-    ['Total for 4 persons', '~€350–370'],
-    ['Per person', '~€88–93'],
+    ['Per night (Sonder managed)', '~€150'],
+    ['3 nights subtotal', '~€450'],
+    ['Cleaning + fees', '~€60–80'],
+    ['Total for 4 persons', '~€510–530'],
+    ['Per person', '~€128–133'],
   ];
   priceRows.forEach((row, i) => {
     const py = 3.82 + i * 0.215;
     s.addText(row[0], { x: rx + 0.2, y: py, w: 4.0, h: 0.21, fontSize: 10, fontFace: 'Calibri', color: C.gray });
-    s.addText(row[1], { x: rx + 4.5, y: py, w: 2.6, h: 0.21, align: 'right', fontSize: 10, fontFace: 'Trebuchet MS', bold: i === 3 || i === 4, color: i === 3 ? C.amber : i === 4 ? C.green : C.offWhite });
+    s.addText(row[1], { x: rx + 4.5, y: py, w: 2.6, h: 0.21, align: 'right', fontSize: 10, fontFace: 'Trebuchet MS', bold: i === 3 || i === 4, color: i === 3 ? MAD : i === 4 ? C.green : C.offWhite });
   });
 
   s.addShape('rect', { x: rx, y: 5.03, w: 7.3, h: 0.52, fill: { color: C.bgDeep }, line: { color: C.bgDeep }, rounding: 0.04 });
-  s.addText('airbnb.com/rooms/34669674  (District VII — Andrássy Avenue area, balcony)', {
+  s.addText('airbnb.com/rooms/47308216  (Sonder Malasaña — professional managed, 24/7 support)', {
     x: rx + 0.15, y: 5.03, w: 7.0, h: 0.52,
-    fontSize: 9.5, fontFace: 'Calibri', color: C.amber, italic: true, valign: 'middle',
+    fontSize: 9.5, fontFace: 'Calibri', color: MAD, italic: true, valign: 'middle',
   });
 
-  s.addText('Alternative: "Cozy 2-BR Budapest Broadway AC/Balcony" → airbnb.com/rooms/40916878', {
+  s.addText('Budget alt: 2BR central Madrid ~€80–110/night → ~€310 total → ~€78pp total', {
     x: rx + 0.1, y: 5.65, w: 7.1, h: 0.32,
     fontSize: 9.5, fontFace: 'Calibri', color: C.dimGray, italic: true,
   });
 
-  s.addText('🔑  Book immediately — Halloween weekend in Budapest sells out months ahead!', {
+  s.addText('🔑  Book immediately — Halloween weekend Madrid fills up completely!', {
     x: rx + 0.1, y: 6.05, w: 7.1, h: 0.32,
     fontSize: 9.5, fontFace: 'Calibri', bold: true, color: C.coral,
   });
@@ -812,59 +815,60 @@ function slide9(pres) {
   bottomBar(s);
 }
 
-// ── Slide 10: Budapest Activities ─────────────────────────────────────────────
+// ── Slide 10: Madrid Activities ───────────────────────────────────────────────
 function slide10(pres) {
   const s = pres.addSlide();
   s.background = { color: C.bg };
-  sectionHeader(s, '🇭🇺  BUDAPEST — DAY-BY-DAY ITINERARY', C.amber);
+  sectionHeader(s, '🇪🇸  MADRID — DAY-BY-DAY ITINERARY', MAD);
 
   const days = [
     {
       day: 'DAY 1 — WED Oct 29', date: 'Arrival (Evening)',
       items: [
-        '✈  W62292 lands BUD 17:55 from DTM',
-        '🏠  Check in District VII apartment',
-        '🍜  Dinner: Goulash at Menza or Hungarikum Bisztro',
-        '🍺  First ruin bar: Szimpla Kert (Kazinczy u. 14)',
-        '   The original (2002) — iconic labyrinthine courtyard',
-        '   Beer: Dreher Classic ~€3 · Open till 4 AM',
+        '✈  Iberia ~22:35 lands MAD from DUS',
+        '🚇  Metro Line 8 to centre (~€5, 20 min)',
+        '🏠  Check in Malasaña apartment',
+        '🍷  Bodega de la Ardosa: vermouth on tap since 1892',
+        '🍺  Malasaña bar crawl: Calle de la Palma, Tupperware',
+        '   Beer: Mahou 5 Estrellas ~€3 · La Vía Láctea till 3 AM',
       ],
     },
     {
-      day: 'DAY 2 — THU Oct 30', date: 'Thermal Bath Day',
+      day: 'DAY 2 — THU Oct 30', date: 'Walking Tour + Cooking',
       items: [
-        '🚶  TripToBudapest Free Walking Tour 10 AM',
-        '   Erzsébet tér (look for blue FREE TOUR flag) · 2.5h',
-        '🛁  Széchenyi Thermal Bath afternoon (€30pp)',
-        '   18 pools, outdoor thermal · open till 10 PM',
-        '🍺  Mazel Tov bar (Akácfa u. 47) dinner + drinks',
-        '🌃  Instant-Fogas complex (Akácfa u. 51)',
-        '   18 bars + 7 dance floors · open till 6 AM · FREE entry',
+        '🚶  SANDEMANs Free Tour 11:30 AM @ Plaza Mayor',
+        '   2.5h · Royal Palace, Sol, La Latina, historic Madrid',
+        '🥘  Lunch tapas on Calle de la Cava Baja (La Latina)',
+        '🍳  Cooking Point Tapas Class 17:30–21:30 (€85pp)',
+        '   7 tapas recipes + sangría · Calle de Moratín, 11',
+        '   Book: cookingpoint.es  · Group max 12',
+        '🌃  After: Chueca bar scene + El Tigre free tapas',
       ],
     },
     {
       day: 'DAY 3 — FRI Oct 31 🎃', date: 'HALLOWEEN NIGHT',
       items: [
-        '🍳  Chefparade Hungarian Cooking Class (3h, €105pp)',
-        '   Hands-on goulash + stuffed cabbage + chimney cake',
-        '   Book: cookingbudapest.com  · Group max 12',
-        '🕙  Original Halloween Pub Crawl 9:30 PM · €19pp',
-        '   Meet: Király utca 56 · guide with umbrella',
-        '   Free shots + costume contest + VIP club entry',
-        '🎉  After: International Halloween Madness @ Akvárium Klub',
-        '   3 dance floors, 2,500 people · pre-sale €15–18',
+        '🌞  Sleep in — Madrid nights go till 7 AM',
+        '🏛  Afternoon: Prado Museum or Retiro Park stroll',
+        '🎃  Halloween Pub Crawl 22:00 · €20pp',
+        '   Meet: Mulberry\'s Bar, Calle de Núñez de Arce 9',
+        '   4 bars · tequila shots · €100 costume contest',
+        '🎶  After 1 AM: Teatro Kapital — 7 floors, till 6 AM',
+        '   Calle Atocha 125 · €21pp entry · most central club',
+        '   OR Fabrik Halloween party (20 min Uber, bigger)',
       ],
     },
     {
-      day: 'DAY 4 — SAT Nov 1 → Nov 2', date: 'Explore + Depart',
+      day: 'DAY 4 — SAT Nov 1 (hol) + Nov 2', date: 'Public Holiday + Depart',
       items: [
-        '🏛  Heroes\' Square + Vajdahunyad Castle (free)',
-        '🛍  Great Market Hall: paprika, pálinka, lángos',
-        '🍺  Great ruin bar bar afternoon: Ötkert outdoor',
-        '🌙  Optional: Rudas Night Bath 10 PM – 3 AM (€37)',
+        '🌞  Nov 1 = ALL SAINTS DAY (public holiday in Spain)',
+        '☕  Brunch: Churros con Chocolate at Chocolatería San Ginés',
+        '🏺  Mercado de San Miguel: pintxos + local wines',
+        '🍺  Afternoon vermut: La Hora del Vermut (~noon–3 PM)',
+        '🌃  Final night: Malasaña or Lavapiés late bars',
         '',
-        '☀  NOV 2: W62291 departs BUD 10:40 → DTM 12:35',
-        '   Bolt taxi to BKK airport (30 min, ~€15)',
+        '✈  NOV 2: DUS return flight (check Iberia/Eurowings)',
+        '   Metro Line 8 to airport (~€5, allow 45 min)',
       ],
     },
   ];
@@ -872,30 +876,30 @@ function slide10(pres) {
   days.forEach((d, i) => {
     const col = i % 2;
     const row = Math.floor(i / 2);
-    dayCard(s, 0.3 + col * 6.5, 0.98 + row * 3.15, 6.2, 3.0, d.day, d.date, d.items, C.amber);
+    dayCard(s, 0.3 + col * 6.5, 0.98 + row * 3.15, 6.2, 3.0, d.day, d.date, d.items, MAD);
   });
 
   s.addShape('rect', { x: 0.3, y: 7.12, w: 12.7, h: 0.22, fill: { color: C.bgCard }, line: { color: C.bgDeep } });
   s.addText(
-    'Halloween Pub Crawl: originalberlintours.com/budapest-halloween  ·  Cooking: cookingbudapest.com  ·  Free tour: triptobudapest.hu  ·  Thermal: szechenyibath.hu',
+    'Halloween Pub Crawl: eventbrite.es/e/1037812363717  ·  Cooking: cookingpoint.es  ·  Free tour: neweuropetours.eu/madrid  ·  Club: teatrokapital.com',
     { x: 0.4, y: 7.12, w: 12.5, h: 0.22, fontSize: 8, fontFace: 'Calibri', color: C.dimGray, valign: 'middle' }
   );
 
   bottomBar(s);
 }
 
-// ── Slide 11: Budapest Cost Summary ───────────────────────────────────────────
+// ── Slide 11: Madrid Cost Summary ─────────────────────────────────────────────
 function slide11(pres) {
   const s = pres.addSlide();
   s.background = { color: C.bg };
-  sectionHeader(s, '🇭🇺  BUDAPEST — COST SUMMARY', C.amber);
+  sectionHeader(s, '🇪🇸  MADRID — COST SUMMARY', MAD);
 
-  const hO  = { bold: true, color: C.amber, fontSize: 12, fontFace: 'Trebuchet MS', fill: { color: C.bgDeep }, align: 'center', valign: 'middle' };
+  const hO  = { bold: true, color: MAD, fontSize: 12, fontFace: 'Trebuchet MS', fill: { color: C.bgDeep }, align: 'center', valign: 'middle' };
   const rO  = { color: C.offWhite, fontSize: 11, fontFace: 'Calibri', fill: { color: C.bgCard }, align: 'left', valign: 'middle' };
   const rA  = { ...rO, fill: { color: C.bg } };
   const rNm = { ...rO, align: 'right' };
   const rNA = { ...rA, align: 'right' };
-  const tot = { bold: true, color: C.amber, fontSize: 13, fontFace: 'Trebuchet MS', fill: { color: C.bgDeep }, align: 'right', valign: 'middle' };
+  const tot = { bold: true, color: MAD, fontSize: 13, fontFace: 'Trebuchet MS', fill: { color: C.bgDeep }, align: 'right', valign: 'middle' };
   const totL = { ...tot, align: 'left', color: C.white };
 
   s.addTable([
@@ -907,77 +911,72 @@ function slide11(pres) {
     ],
     [
       { text: 'Flights (return)', options: rO },
-      { text: 'Wizz Air W62292/W62291  DTM ↔ BUD', options: rO },
-      { text: '~€135', options: rNm },
-      { text: '~€540', options: rNm },
+      { text: 'Iberia / Eurowings  DUS ↔ MAD', options: rO },
+      { text: '~€175', options: rNm },
+      { text: '~€700', options: rNm },
     ],
     [
       { text: 'Accommodation', options: rA },
-      { text: 'Airbnb District VII — 3 nights (inc. fees)', options: rA },
-      { text: '~€90', options: rNA },
-      { text: '~€360', options: rNA },
+      { text: 'Airbnb Malasaña — 3 nights (inc. fees)', options: rA },
+      { text: '~€130', options: rNA },
+      { text: '~€520', options: rNA },
     ],
     [
       { text: 'Halloween Pub Crawl', options: rO },
-      { text: 'Original Halloween Pub Crawl (Oct 31)', options: rO },
-      { text: '€19', options: rNm },
-      { text: '€76', options: rNm },
+      { text: 'Bar Crawl Madrid — Puerta del Sol (Oct 31)', options: rO },
+      { text: '€20', options: rNm },
+      { text: '€80', options: rNm },
     ],
     [
       { text: 'Cooking Class', options: rA },
-      { text: 'Chefparade — Hungarian goulash + chimney cake', options: rA },
-      { text: '€105', options: rNA },
-      { text: '€420', options: rNA },
+      { text: 'Cooking Point — 7 tapas + sangría (4h)', options: rA },
+      { text: '€85', options: rNA },
+      { text: '€340', options: rNA },
     ],
     [
-      { text: 'Thermal Bath', options: rO },
-      { text: 'Széchenyi — all-day thermal (Oct 30)', options: rO },
-      { text: '€32', options: rNm },
-      { text: '€128', options: rNm },
+      { text: 'Free Walking Tour', options: rO },
+      { text: 'SANDEMANs — Plaza Mayor (tip)', options: rO },
+      { text: '~€12', options: rNm },
+      { text: '~€48', options: rNm },
     ],
     [
-      { text: 'Free Walking Tour', options: rA },
-      { text: 'TripToBudapest — Erzsébet tér (tip)', options: rA },
-      { text: '~€12', options: rNA },
-      { text: '~€48', options: rNA },
+      { text: 'Food (3 days)', options: rA },
+      { text: 'Tapas, churros, market food — avg €15–20/meal', options: rA },
+      { text: '~€115', options: rNA },
+      { text: '~€460', options: rNA },
     ],
     [
-      { text: 'Food (3 days)', options: rO },
-      { text: 'Goulash, lángos, chimney cakes — avg €10–20/meal', options: rO },
-      { text: '~€95', options: rNm },
-      { text: '~€380', options: rNm },
+      { text: 'Drinks & Nightlife', options: rO },
+      { text: 'Malasaña + Chueca + Halloween club (3 nights)', options: rO },
+      { text: '~€140', options: rNm },
+      { text: '~€560', options: rNm },
     ],
     [
-      { text: 'Drinks & Nightlife', options: rA },
-      { text: 'Ruin bars + clubs (3 nights) — very cheap', options: rA },
-      { text: '~€110', options: rNA },
-      { text: '~€440', options: rNA },
-    ],
-    [
-      { text: 'Misc (transport, tips)', options: rO },
-      { text: 'Bolt rides, Budapest GO transit card, souvenirs', options: rO },
-      { text: '~€25', options: rNm },
-      { text: '~€100', options: rNm },
+      { text: 'Misc (transport, tips)', options: rA },
+      { text: 'Metro, Uber, souvenirs, airport taxi', options: rA },
+      { text: '~€35', options: rNA },
+      { text: '~€140', options: rNA },
     ],
     [
       { text: '🏆  TOTAL ESTIMATE', options: totL },
-      { text: 'Budapest, Oct 29 – Nov 2, 2025', options: { ...tot, align: 'left', color: C.gray } },
-      { text: '~€623', options: { ...tot, color: C.amber } },
-      { text: '~€2,492', options: { ...tot, color: C.orange } },
+      { text: 'Madrid, Oct 29/30 – Nov 2, 2025', options: { ...tot, align: 'left', color: C.gray } },
+      { text: '~€712', options: { ...tot, color: MAD } },
+      { text: '~€2,848', options: { ...tot, color: C.orange } },
     ],
   ], {
     x: 0.5, y: 1.02, w: 12.3,
     colW: [2.5, 5.2, 2.1, 2.1],
-    rowH: [0.42, 0.45, 0.45, 0.45, 0.45, 0.45, 0.45, 0.45, 0.45, 0.45, 0.52],
+    rowH: [0.42, 0.48, 0.48, 0.48, 0.48, 0.48, 0.48, 0.48, 0.48, 0.55],
     border: { type: 'solid', pt: 1, color: C.bgDeep },
   });
 
-  s.addShape('rect', { x: 0.5, y: 6.65, w: 12.3, h: 0.55, fill: { color: C.bgCard }, line: { color: C.amber, pt: 1 }, rounding: 0.04 });
+  s.addShape('rect', { x: 0.5, y: 6.52, w: 12.3, h: 0.68, fill: { color: C.bgCard }, line: { color: MAD, pt: 1 }, rounding: 0.04 });
   s.addText(
-    '💡 Budget range: €500–750pp.  Ruin bars = NO cover charge most nights.  Beers from €1.25 (pub) to €4.50 (ruin bar).  ' +
-    'Optional Rudas Night Bath (€37) or Akvárium Klub Halloween event (+€15–18) are add-ons.',
+    '💡 Budget range: €600–900pp depending on accommodation choice and club nights.  ' +
+    'El Tigre bar gives MASSIVE free tapas plates with every €3 beer — take advantage.  ' +
+    'Oct 31 is a Friday + Nov 1 is a public holiday = the best possible Halloween combo in Europe.',
     {
-      x: 0.65, y: 6.67, w: 12.0, h: 0.5,
+      x: 0.65, y: 6.54, w: 12.0, h: 0.64,
       fontSize: 10.5, fontFace: 'Calibri', color: C.gray, wrap: true, valign: 'middle',
     }
   );
@@ -991,7 +990,6 @@ function slide12(pres) {
   s.addImage({ path: path.join(IMG, 'comparison_bg.png'), x: 0, y: 0, w: '100%', h: '100%' });
   s.addShape('rect', { x: 0, y: 0, w: '100%', h: '100%', fill: { color: '000000', transparency: 55 }, line: { color: '000000' } });
 
-  // Title bar
   s.addShape('rect', { x: 0, y: 0, w: '100%', h: 0.72, fill: { color: C.bgCard, transparency: 20 }, line: { color: C.bgCard } });
   s.addShape('rect', { x: 0, y: 0, w: '100%', h: 0.08, fill: { color: C.orange }, line: { color: C.orange } });
   s.addText('SIDE-BY-SIDE COMPARISON  —  WHERE ARE WE GOING?', {
@@ -999,27 +997,25 @@ function slide12(pres) {
     fontSize: 22, fontFace: 'Trebuchet MS', bold: true, color: C.white, valign: 'middle',
   });
 
-  // Column headers
   s.addShape('rect', { x: 3.9, y: 0.82, w: 4.1, h: 0.58, fill: { color: C.bgDeep, transparency: 10 }, line: { color: C.orange, pt: 2 }, rounding: 0.04 });
   s.addText('🇵🇹  LISBON', { x: 3.9, y: 0.82, w: 4.1, h: 0.58, align: 'center', fontSize: 20, fontFace: 'Trebuchet MS', bold: true, color: C.orange, valign: 'middle' });
 
-  s.addShape('rect', { x: 8.15, y: 0.82, w: 4.1, h: 0.58, fill: { color: C.bgDeep, transparency: 10 }, line: { color: C.amber, pt: 2 }, rounding: 0.04 });
-  s.addText('🇭🇺  BUDAPEST', { x: 8.15, y: 0.82, w: 4.1, h: 0.58, align: 'center', fontSize: 20, fontFace: 'Trebuchet MS', bold: true, color: C.amber, valign: 'middle' });
+  s.addShape('rect', { x: 8.15, y: 0.82, w: 4.1, h: 0.58, fill: { color: C.bgDeep, transparency: 10 }, line: { color: MAD, pt: 2 }, rounding: 0.04 });
+  s.addText('🇪🇸  MADRID', { x: 8.15, y: 0.82, w: 4.1, h: 0.58, align: 'center', fontSize: 20, fontFace: 'Trebuchet MS', bold: true, color: MAD, valign: 'middle' });
 
-  // Comparison rows
   const rows = [
-    ['💰 Trip Cost (pp)',      '~€735',                             '~€623',                      false],
-    ['✈ Flight',              '3h 10m · DUS only',                  '1h 45m · DTM or DUS',        false],
-    ['🛫 Airport Choice',     'DUS only (Eurowings / TAP)',         'DTM + DUS (Wizz + Eurowings)',false],
-    ['🍺 Beer Price',         '€2 – €3 per pint',                  '€1.25 – €4.50 per pint',     false],
-    ['🌡 Late Oct Weather',   '17–22°C ☀ T-shirt nights',          '5–12°C 🧥 Jacket needed',    false],
-    ['🎃 Halloween Vibe',     '⭐⭐⭐⭐  Pub crawl + big clubs',   '⭐⭐⭐⭐⭐ District VII insanity', false],
-    ['🏙 Unique Feature',     'Pink Street · Fado · Atlantic',     'Ruin Bars · Thermal Baths',   false],
-    ['🎭 Nightlife Hours',    'Bars till 2 AM · clubs till 6 AM',  'Ruin bars till 6 AM · FREE',  false],
-    ['🍴 Food Scene',         'Petiscos · Bacalhau · €15–25/meal', 'Goulash · Lángos · €10–20',   false],
-    ['📍 Pub Crawl',          'Halloween Haunts · €28pp',          'Original BPT Crawl · €19pp',  false],
-    ['🍳 Cooking Class',      'Cooking Lisbon · €110pp',           'Chefparade · €105pp',         false],
-    ['💡 Our Verdict',        'Warm, chic, world-class nightlife', 'Cheapest, wildest, most unique',true],
+    ['💰 Trip Cost (pp)',      '~€735',                                '~€712',                         false],
+    ['✈ Flight',              '3h 10m · DUS only',                    '2h 30m · DUS only',              false],
+    ['🛫 Airport Choice',     'DUS only (Eurowings / TAP)',           'DUS only (Iberia / Eurowings)',   false],
+    ['🍺 Beer Price',         '€2 – €3 per pint',                    '€2 – €4 per caña / tubo',        false],
+    ['🌡 Late Oct Weather',   '17–22°C ☀ T-shirt nights',            '18–20°C ☀ Warmer at night',      false],
+    ['🎃 Halloween Vibe',     '⭐⭐⭐⭐  Fri pub crawl + clubs',      '⭐⭐⭐⭐⭐ Fri + PUBLIC HOLIDAY', false],
+    ['🏙 Unique Feature',     'Pink Street · Fado · Atlantic',        'Malasaña · Tapas · Vermouth',     false],
+    ['🎭 Nightlife Hours',    'Bars till 2 AM · clubs till 6 AM',    'Clubs till 6–7 AM · free tapas',  false],
+    ['🍴 Food Scene',         'Petiscos · Bacalhau · €15–25/meal',   'Tapas · Pintxos · €15–20/meal',   false],
+    ['📍 Pub Crawl',          'Halloween Haunts · €28pp',             'Bar Crawl Madrid · €20pp',        false],
+    ['🍳 Cooking Class',      'Cooking Lisbon · €110pp',              'Cooking Point · €85pp',           false],
+    ['💡 Our Verdict',        'Atlantic charm, Fado, warmer Airbnb', 'BEST Halloween in Europe 2025',   true],
   ];
 
   rows.forEach((row, i) => {
@@ -1027,19 +1023,15 @@ function slide12(pres) {
     const isLast = row[3];
     const rowFill = isLast ? C.bgDeep : (i % 2 === 0 ? C.bgCard : C.bg);
     const textColor = isLast ? C.white : C.offWhite;
-    const labelColor = isLast ? C.amber : C.gray;
 
-    // Category label
     s.addShape('rect', { x: 0.3, y: ry, w: 3.5, h: 0.42, fill: { color: rowFill, transparency: isLast ? 0 : 20 }, line: { color: C.bgDeep } });
-    s.addText(row[0], { x: 0.35, y: ry, w: 3.4, h: 0.42, fontSize: isLast ? 12 : 10.5, fontFace: 'Calibri', bold: isLast, color: labelColor, valign: 'middle' });
+    s.addText(row[0], { x: 0.35, y: ry, w: 3.4, h: 0.42, fontSize: isLast ? 12 : 10.5, fontFace: 'Calibri', bold: isLast, color: isLast ? C.amber : C.gray, valign: 'middle' });
 
-    // Lisbon value
     s.addShape('rect', { x: 3.9, y: ry, w: 4.1, h: 0.42, fill: { color: rowFill, transparency: isLast ? 0 : 20 }, line: { color: isLast ? C.orange : C.bgDeep, pt: isLast ? 1.5 : 0.5 } });
     s.addText(row[1], { x: 3.95, y: ry, w: 4.0, h: 0.42, align: 'center', fontSize: isLast ? 11.5 : 10, fontFace: isLast ? 'Trebuchet MS' : 'Calibri', bold: isLast, color: isLast ? C.orange : textColor, valign: 'middle' });
 
-    // Budapest value
-    s.addShape('rect', { x: 8.15, y: ry, w: 4.1, h: 0.42, fill: { color: rowFill, transparency: isLast ? 0 : 20 }, line: { color: isLast ? C.amber : C.bgDeep, pt: isLast ? 1.5 : 0.5 } });
-    s.addText(row[2], { x: 8.2, y: ry, w: 4.0, h: 0.42, align: 'center', fontSize: isLast ? 11.5 : 10, fontFace: isLast ? 'Trebuchet MS' : 'Calibri', bold: isLast, color: isLast ? C.amber : textColor, valign: 'middle' });
+    s.addShape('rect', { x: 8.15, y: ry, w: 4.1, h: 0.42, fill: { color: rowFill, transparency: isLast ? 0 : 20 }, line: { color: isLast ? MAD : C.bgDeep, pt: isLast ? 1.5 : 0.5 } });
+    s.addText(row[2], { x: 8.2, y: ry, w: 4.0, h: 0.42, align: 'center', fontSize: isLast ? 11.5 : 10, fontFace: isLast ? 'Trebuchet MS' : 'Calibri', bold: isLast, color: isLast ? MAD : textColor, valign: 'middle' });
   });
 
   s.addShape('rect', { x: 0, y: 7.42, w: '100%', h: 0.08, fill: { color: C.orange }, line: { color: C.orange } });
@@ -1050,7 +1042,7 @@ async function main() {
   const pres = new PptxGenJS();
   pres.layout = 'LAYOUT_WIDE';
   pres.author = 'Halloween Trip 2025';
-  pres.title = 'Halloween Trip 2025 – Lisbon vs Budapest';
+  pres.title = 'Halloween Trip 2025 – Lisbon vs Madrid';
 
   console.log('Building slides...');
   slide1(pres);  console.log('  ✓ Slide 1: Title');
@@ -1059,11 +1051,11 @@ async function main() {
   slide4(pres);  console.log('  ✓ Slide 4: Lisbon Airbnb');
   slide5(pres);  console.log('  ✓ Slide 5: Lisbon Activities');
   slide6(pres);  console.log('  ✓ Slide 6: Lisbon Cost Summary');
-  slide7(pres);  console.log('  ✓ Slide 7: Budapest Overview');
-  slide8(pres);  console.log('  ✓ Slide 8: Budapest Flights');
-  slide9(pres);  console.log('  ✓ Slide 9: Budapest Airbnb');
-  slide10(pres); console.log('  ✓ Slide 10: Budapest Activities');
-  slide11(pres); console.log('  ✓ Slide 11: Budapest Cost Summary');
+  slide7(pres);  console.log('  ✓ Slide 7: Madrid Overview');
+  slide8(pres);  console.log('  ✓ Slide 8: Madrid Flights');
+  slide9(pres);  console.log('  ✓ Slide 9: Madrid Airbnb');
+  slide10(pres); console.log('  ✓ Slide 10: Madrid Activities');
+  slide11(pres); console.log('  ✓ Slide 11: Madrid Cost Summary');
   slide12(pres); console.log('  ✓ Slide 12: Comparison');
 
   await pres.writeFile({ fileName: OUT });
