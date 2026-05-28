@@ -434,18 +434,19 @@ const MALTA = {
   subtitle:'Paceville · Sliema · Valletta · Blaue Lagune · Cisk Lager',
   stats:[
     ['✈ Flugdauer','~3h 00m\nab DUS'],['🍺 Bier','€2 – €3\n(Cisk Lager)'],
-    ['🌡 Wetter','22–24°C ☀☀\nWärmstes Ziel!'],['💰 Kosten ca.','~€580\npro Person'],
-    ['🏙 Nightlife','⭐⭐⭐⭐\nPaceville Clubs'],['📍 Ab Flughafen','DUS\n(Eurowings/Ryanair)'],
+    ['🌡 Wetter','22–24°C ☀☀\nWärmstes Ziel!'],['💰 Kosten ca.','~€631\npro Person'],
+    ['🏙 Nightlife','⭐⭐⭐⭐\nPaceville Clubs'],['📍 Ab Flughafen','FMO / DTM\n(Ryanair direkt)'],
   ],
   description:'Malta ist mit 22–24°C das WÄRMSTE europäische Ziel dieser Auswahl — und Ende Oktober noch Badesaison! Die Insel bietet UNESCO-Welterbe Valletta, das mittelalterliche Mdina und das Nachtleben von Paceville (St. Julian\'s). Halloween in den Clubs von Paceville ist eine eigene Kategorie. Und das Cisk Lager gehört zu den günstigsten Bieren Europas.',
   flightsOut:[
-    ['⭐ Empfohlen','EW\nEurowings','DUS → MLA\n30. Okt. früh','~07:xx','~10:00','2h 55m','~€90','~€360'],
-    ['Vorabend 29.10.','Eurowings\n/ Ryanair','DUS → MLA\n29. Okt. abends','Abends','Abends','~3h','~€100','~€400'],
-    ['Budget','FR\nRyanair','DUS → MLA\n30. Okt.','Verschieden','Verschieden','3h 00m','~€70–90','~€280–360'],
+    ['⭐ Empfohlen','FR\nRyanair','FMO → MLA\n30. Okt.','Morgens','~10:30','~3h 00m','~€60–90','~€240–360'],
+    ['Option 2','FR\nRyanair','DTM → MLA\n30. Okt.','Morgens','~10:45','~3h 00m','~€65–95','~€260–380'],
+    ['Vorabend\n29. Okt.','FR\nRyanair','FMO → MLA\n29. Okt.','Abends','Abends','~3h 00m','~€70–100','~€280–400'],
+    ['DUS-Passagiere','Umstieg\n(z.B. LH/EW)','DUS → FRA/MUC\n→ MLA','—','—','5–7h','~€120–180','~€480–720'],
   ],
-  flightRet:['Eurowings/Ryanair  (MLA→DUS)','MLA → DUS  /  2. Nov.','Verschieden','Verschieden','~3h','~€80–100','~€320–400'],
-  flightNote:'🌞  Malta ist mit 22–24°C Anfang November das WÄRMSTE Reiseziel dieser Auswahl!  Flughafen Malta (MLA) liegt 8 km südlich von Valletta — Taxi/Bus ins Zentrum ~20 Min.  Direktflüge ab DUS mit Eurowings & Ryanair.  Buchen: eurowings.com · ryanair.com · skyscanner.de',
-  flightTotal:'€600 – €800 gesamt',
+  flightRet:['FR Ryanair  (MLA→FMO/DTM)','MLA → FMO oder DTM  /  2. Nov.','Verschieden','Verschieden','~3h 00m','~€50–90','~€200–360'],
+  flightNote:'⚠️  KEIN Direktflug ab DUS (Düsseldorf) nach Malta!  Direktflüge ab FMO (Münster/Osnabrück) und DTM (Dortmund) mit Ryanair.  FMO liegt ~100 km von DUS entfernt (1,5h Fahrt), DTM ~70 km (1h Fahrt).  Empfehlung: Fahrgemeinschaft nach FMO oder DTM zum Abflug.  Buchen: ryanair.com · skyscanner.de',
+  flightTotal:'€400 – €560 gesamt',
   airbnbTitle:'St. Julian\'s / Sliema — 2-Zi.-Wohnung mit Terrasse & Meerblick',
   airbnbSpecs:[
     ['🛏 2 Schlafzimmer'],['🚿 2 Bäder'],['🏗 Terrasse ✓',[],C.green],
@@ -491,7 +492,7 @@ const MALTA = {
   ],
   activityLinks:'Bootsausflug Blaue Lagune: katarinaLine.com oder lokal buchen  ·  Kochkurs: experiencemalta.com  ·  Stadtführung: visitvalletta.mt  ·  Paceville Clubs: hugo.com.mt',
   costRows:[
-    ['Hin- und Rückflug','Eurowings/Ryanair  DUS ↔ MLA','~€185','~€740'],
+    ['Hin- und Rückflug','Ryanair  FMO/DTM ↔ MLA  (+ Anfahrt ~€15)','~€140','~€560'],
     ['Unterkunft','Airbnb St. Julian\'s — 3 Nächte (inkl. Gebühren)','~€89','~€355'],
     ['Halloween-Party','Paceville Clubeintritt (31. Okt.) — meist günstiger','~€15','~€60'],
     ['Kochkurs','Maltesische Küche — Fenek + Pastizzi + Wein','€65','€260'],
@@ -500,7 +501,7 @@ const MALTA = {
     ['Essen (3 Tage)','Fisch, Pasta, Pastizzi, Hafenrestaurants','~€95','~€380'],
     ['Getränke & Ausgehen','Paceville Clubs + Strandbar (3 Nächte)','~€110','~€440'],
     ['Sonstiges','Taxi Flughafen, Bus, Souvenirs','~€25','~€100'],
-    ['🏆  GESAMTSCHÄTZUNG','Malta, 30. Okt. – 2. Nov. 2025','~€631','~€2.523'],
+    ['🏆  GESAMTSCHÄTZUNG','Malta, 30. Okt. – 2. Nov. 2025','~€586','~€2.344'],
   ],
   costNote:'💡 Günstigste Unterkunft dieser Auswahl!  Cisk-Bier ab €2,50.  Pastizzi (maltesisches Gebäck) für €0,50.  Baden im Mittelmeer noch möglich!  Blaue Lagune ist eines der schönsten Gewässer Europas.',
 };
@@ -546,9 +547,9 @@ function buildComparison(pres) {
   });
 
   const rows=[
-    ['💰 Kosten p.P.',      '~€735',                        '~€631'],
-    ['✈ Flugdauer',         '3h 10m  ab DUS',               '~3h 00m  ab DUS'],
-    ['🛫 Flughafen',        'DUS — Eurowings / TAP',        'DUS — Eurowings / Ryanair'],
+    ['💰 Kosten p.P.',      '~€735',                        '~€586'],
+    ['✈ Flugdauer',         '3h 10m  ab DUS',               '~3h 00m  ab FMO/DTM'],
+    ['🛫 Flughafen',        'DUS — Eurowings / TAP',        'FMO oder DTM — Ryanair direkt'],
     ['🍺 Bierpreis',        '€2–3  (Super Bock / Sagres)',  '€2–3  (Cisk Lager, seit 1928)'],
     ['🌡 Wetter Ende Okt.', '17–22°C  ☀',                  '22–24°C  ☀☀  (wärmer!)'],
     ['🎃 Halloween',        '⭐⭐⭐⭐  Clubs bis 6 Uhr',     '⭐⭐⭐⭐  Paceville bis 4 Uhr'],
