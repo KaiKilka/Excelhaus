@@ -133,10 +133,12 @@ function buildAirbnb(pres, cfg) {
     const isTotal=i===3; const isPP=i===4;
     s.addText(row[1],{x:rx+4.5,y:py,w:2.6,h:0.21,align:'right',fontSize:10,fontFace:'Trebuchet MS',bold:isTotal||isPP,color:isTotal?cfg.accent:isPP?C.green:C.offWhite});
   });
-  s.addShape('rect',{x:rx,y:5.03,w:7.3,h:0.52,fill:{color:C.bgDeep},line:{color:C.bgDeep},rounding:0.04});
-  s.addText(cfg.airbnbUrl,{x:rx+0.15,y:5.03,w:7.0,h:0.52,fontSize:9.5,fontFace:'Calibri',color:cfg.accent,italic:true,valign:'middle'});
-  s.addText(cfg.airbnbAlt,{x:rx+0.1,y:5.65,w:7.1,h:0.32,fontSize:9.5,fontFace:'Calibri',color:C.dimGray,italic:true});
-  s.addText('🔑  Jetzt buchen — Halloween-Wochenende ist schnell ausgebucht!',{x:rx+0.1,y:6.05,w:7.1,h:0.32,fontSize:9.5,fontFace:'Calibri',bold:true,color:C.coral});
+  // Primary search button
+  s.addShape('rect',{x:rx,y:5.03,w:7.3,h:0.66,fill:{color:cfg.accent},line:{color:cfg.accent},rounding:0.06});
+  s.addText('🔍  Airbnb: ' + cfg.name + ' durchsuchen  →',{x:rx,y:5.03,w:7.3,h:0.66,align:'center',fontSize:15,fontFace:'Trebuchet MS',bold:true,color:C.white,valign:'middle',hyperlink:{url:cfg.airbnbSearchUrl,tooltip:'Airbnb öffnen — 30. Okt.–2. Nov., 4 Gäste, 2 SZ'}});
+  // Alt hint
+  s.addText(cfg.airbnbAlt,{x:rx+0.1,y:5.77,w:7.1,h:0.28,fontSize:9,fontFace:'Calibri',color:C.dimGray,italic:true,hyperlink:{url:cfg.airbnbAltUrl,tooltip:'Alternative Suche öffnen'}});
+  s.addText('⚠️  Halloween-Wochenende ist schnell ausgebucht — jetzt klicken & buchen!',{x:rx+0.1,y:6.1,w:7.1,h:0.3,fontSize:9.5,fontFace:'Calibri',bold:true,color:C.coral});
   bottomBar(s);
 }
 
@@ -210,8 +212,9 @@ const LISSABON = {
   ],
   airbnbLocation:'📌 Bairro Alto — direkt im Herz der 200+ Bars, Pink Street 10 Fußminuten entfernt',
   airbnbPricing:[['Pro Nacht','~€130'],['3 Nächte','~€390'],['Reinigung & Gebühren','~€60–80'],['Gesamt für 4 Pers.','~€450–480'],['Pro Person','~€113–120']],
-  airbnbUrl:'airbnb.com/rooms/26081783  (Bairro Alto / São Roque — Verfügbarkeit prüfen)',
-  airbnbAlt:'Alternative: "Garrett 48" in Chiado — Terrasse, 2 SZ, ~€100–130/Nacht → airbnb.com/rooms/1016061',
+  airbnbSearchUrl:'https://www.airbnb.com/s/Bairro-Alto--Lisbon--Portugal/homes?checkin=2025-10-30&checkout=2025-11-02&adults=4&min_bedrooms=2&room_types%5B%5D=Entire+home%2Fapt',
+  airbnbAlt:'📍 Alternativ in Chiado suchen: airbnb.com/s/Chiado--Lisbon (2 SZ, 4 Gäste, gleiche Daten)',
+  airbnbAltUrl:'https://www.airbnb.com/s/Chiado--Lisbon--Portugal/homes?checkin=2025-10-30&checkout=2025-11-02&adults=4&min_bedrooms=2&room_types%5B%5D=Entire+home%2Fapt',
   days:[
     {day:'TAG 1 — DO., 30. OKT.',date:'Ankunftstag',items:[
       '✈  EW9602 landet LIS 12:20 · Einchecken in Bairro Alto',
@@ -450,8 +453,9 @@ const MALTA = {
   ],
   airbnbLocation:'📌 St. Julian\'s / Paceville — direkt am Nachtleben, 2 Min. zu Hugo\'s Lounge & Beach Clubs',
   airbnbPricing:[['Pro Nacht','~€95'],['3 Nächte','~€285'],['Reinigung & Gebühren','~€50–70'],['Gesamt für 4 Pers.','~€335–355'],['Pro Person','~€84–89']],
-  airbnbUrl:'airbnb.com → Suche: St. Julian\'s Malta, 4 Gäste, 2 SZ, Terrasse, 30. Okt.–2. Nov.',
-  airbnbAlt:'Alternative: Sliema (ruhiger, Wasserfront) oder Valletta (historisch, UNESCO) ebenfalls empfohlen',
+  airbnbSearchUrl:'https://www.airbnb.com/s/St-Julian%27s--Malta/homes?checkin=2025-10-30&checkout=2025-11-02&adults=4&min_bedrooms=2&room_types%5B%5D=Entire+home%2Fapt',
+  airbnbAlt:'📍 Alternativ in Sliema suchen: airbnb.com/s/Sliema--Malta (ruhiger, Wasserfront, gleiche Daten)',
+  airbnbAltUrl:'https://www.airbnb.com/s/Sliema--Malta/homes?checkin=2025-10-30&checkout=2025-11-02&adults=4&min_bedrooms=2&room_types%5B%5D=Entire+home%2Fapt',
   days:[
     {day:'TAG 1 — DO., 30. OKT.',date:'Ankunftstag',items:[
       '✈  Eurowings landet MLA ~10:00 · Taxi nach St. Julian\'s',
