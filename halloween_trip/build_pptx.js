@@ -578,6 +578,55 @@ function buildComparison(pres) {
   s.addShape('rect',{x:0,y:7.42,w:'100%',h:0.08,fill:{color:C.orange},line:{color:C.orange}});
 }
 
+// ── Slide 23: Männerreise-Statistiken ────────────────────────────────────────
+function buildMaennerStats(pres) {
+  const s = pres.addSlide();
+  s.background = { color: C.bg };
+  s.addShape('rect',{x:0,y:0,w:'100%',h:0.08,fill:{color:C.orange},line:{color:C.orange}});
+  s.addShape('rect',{x:0,y:0.08,w:'100%',h:0.72,fill:{color:C.bgCard},line:{color:C.bgCard}});
+  s.addText('📊  WISSENSCHAFT DER MÄNNERREISE — BELEGBARE FAKTEN',{x:0.4,y:0.08,w:12.5,h:0.72,fontSize:22,fontFace:'Trebuchet MS',bold:true,color:C.white,valign:'middle'});
+  s.addShape('rect',{x:0,y:0.8,w:'100%',h:0.03,fill:{color:C.orange},line:{color:C.orange}});
+
+  // Big stat boxes: 3 per row, 3 rows
+  const stats = [
+    { icon:'🍺', val:'+340%',   label:'Bierkonsum vs. Zuhause',       sub:'gemessen in Litern, nicht Reue',   color:C.orange },
+    { icon:'⌛', val:'4h 12m',  label:'Schlafdauer pro Nacht',         sub:'geplant waren: 8h',                color:C.amber  },
+    { icon:'📱', val:'-83%',    label:'Nachrichten nach Hause',        sub:'pro Tag nach Ankunft',             color:C.coral  },
+    { icon:'🔁', val:'7×',      label:'"Nur noch eine Bar" pro Nacht', sub:'davon eingehalten: 0×',            color:LIS_C   },
+    { icon:'🔑', val:'1,4',     label:'Verlorene Schlüssel pro Trip',  sub:'einer davon taucht nie wieder auf',color:MALT_C  },
+    { icon:'💸', val:'+47%',    label:'Budget-Überschreitung',         sub:'Ø über alle Männertouren weltweit',color:MAD_C   },
+    { icon:'📸', val:'847 / 3', label:'Fotos gemacht vs. geteilt',     sub:'die anderen 844 bleiben unter uns',color:ROM_C   },
+    { icon:'🕙', val:'22:47',   label:'Tatsächliche Abfahrtszeit',     sub:'geplant: 21:00 Uhr',              color:C.orange },
+    { icon:'🌅', val:'04:35',   label:'Heimkehrzeit (versprochen: 01)', sub:'Frühstück direkt inbegriffen',    color:C.amber  },
+  ];
+
+  const colW = 4.1, rowH = 1.78;
+  const startX = 0.25, startY = 0.97;
+
+  stats.forEach((st, i) => {
+    const col = i % 3, row = Math.floor(i / 3);
+    const x = startX + col * (colW + 0.1);
+    const y = startY + row * (rowH + 0.08);
+
+    s.addShape('rect',{x,y,w:colW,h:rowH,fill:{color:C.bgCard},line:{color:st.color,pt:1.5},rounding:0.05});
+    s.addShape('rect',{x,y,w:colW,h:0.44,fill:{color:C.bgDeep},line:{color:C.bgDeep},rounding:0.05});
+
+    // Emoji icon
+    s.addText(st.icon, {x, y:y+0.02, w:colW, h:0.44, align:'center', fontSize:20, fontFace:'Segoe UI Emoji', valign:'middle'});
+    // Big number
+    s.addText(st.val, {x, y:y+0.46, w:colW, h:0.68, align:'center', fontSize:32, fontFace:'Trebuchet MS', bold:true, color:st.color, valign:'middle'});
+    // Label
+    s.addText(st.label, {x:x+0.08, y:y+1.16, w:colW-0.16, h:0.3, align:'center', fontSize:10, fontFace:'Trebuchet MS', bold:true, color:C.offWhite, valign:'middle'});
+    // Subtext
+    s.addText(st.sub, {x:x+0.08, y:y+1.46, w:colW-0.16, h:0.26, align:'center', fontSize:8.5, fontFace:'Calibri', color:C.dimGray, italic:true, valign:'top', wrap:true});
+  });
+
+  s.addShape('rect',{x:0,y:7.3,w:'100%',h:0.12,fill:{color:C.bgCard},line:{color:C.bgDeep}});
+  s.addText('Quelle: Erfahrungswerte, n = unzählige Männerreisen seit 1987  ·  Statistiken ohne Gewähr, aber mit vollem Überzeugungsgrad  ·  🏆 In Memoriam: Budgets, die nie überlebt haben',
+    {x:0.3,y:7.3,w:12.7,h:0.12,fontSize:7.5,fontFace:'Calibri',color:C.dimGray,italic:true,valign:'middle'});
+  bottomBar(s);
+}
+
 // ── MAIN ─────────────────────────────────────────────────────────────────────
 async function main() {
   const pres = new PptxGenJS();
@@ -598,7 +647,8 @@ async function main() {
     buildCosts(pres,cfg);      console.log(`  ✓ Folie ${base+4}: ${cfg.name} Kosten`);
   });
 
-  buildComparison(pres); console.log('  ✓ Folie 22: Direktvergleich');
+  buildComparison(pres);    console.log('  ✓ Folie 22: Direktvergleich');
+  buildMaennerStats(pres);  console.log('  ✓ Folie 23: Männerreise-Statistiken');
 
   await pres.writeFile({ fileName: OUT });
   console.log(`\n✅ Gespeichert: ${OUT}`);
