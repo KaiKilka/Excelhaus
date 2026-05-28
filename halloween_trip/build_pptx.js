@@ -12,7 +12,7 @@ const C = {
   dimGray:'6B7280', green:'22C55E', gold:'FFD700', black:'000000',
 };
 const LIS_C = 'FF8C00'; // Orange (Lissabon)
-const MIL_C = 'C8003C'; // Rosso Milano (Mailand)
+const SOF_C = '8C52E8'; // Violet (Sofia)
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 function sectionHeader(s, title, accent) {
@@ -263,84 +263,82 @@ const LISSABON = {
   costNote:'💡 Budgetrahmen: €600–900 p.P. je nach Partylust.  Bier ab €2–3, Supermarkt-Runs helfen sparen.  Clubs (Lux Frágil, Brunch Electronik) kosten je ~€20–30 extra.  Leitungswasser in Restaurants gratis.',
 };
 
-const MAILAND = {
-  num:2, name:'Mailand', country:'Italien', flag:'🇮🇹', accent:MIL_C,
-  heroImg:'milan_hero.png', mapImg:'milan_map.png', airbnbImg:'milan_airbnb.png',
-  iataLabel:'MXP (Mailand-Malpensa)',
-  tagline:'Aperitivo, Mode & Nachtleben an den Navigli',
-  subtitle:'Navigli · Corso Como · Duomo · Brera · Clubs bis 5 Uhr',
+const SOFIA = {
+  num:2, name:'Sofia', country:'Bulgarien', flag:'🇧🇬', accent:SOF_C,
+  heroImg:'sofia_hero.png', mapImg:'sofia_map.png', airbnbImg:'sofia_airbnb.png',
+  iataLabel:'SOF (Sofia)',
+  tagline:'Günstigstes Ziel — €1 Bier & Vitosha-Bergblick',
+  subtitle:'Vitosha Blvd · Yalta Club · Alexander-Nevsky-Kathedrale · Studentski Grad',
   stats:[
-    ['✈ Flugdauer','1h 40m\nab DUS'],['🍺 Bier','€5–7\n(Nastro Azzurro)'],
-    ['🌡 Wetter','12–16°C\nEnde Oktober'],['💰 Kosten ca.','~€700\npro Person'],
-    ['🏙 Nightlife','⭐⭐⭐⭐\nNavigli & Corso Como'],['📍 Ab Flughafen','DUS direkt!\n(Eurowings/ITA)'],
+    ['✈ Flugdauer','~2h 30m\nab DUS'],['🍺 Bier','€1 – €2\n(günstigstes Eu.!)'],
+    ['🌡 Wetter','10–14°C 🧥\nEnde Oktober'],['💰 Kosten ca.','~€520\npro Person'],
+    ['🏙 Nightlife','⭐⭐⭐⭐\nYalta · Sin City'],['📍 Ab Flughafen','DUS direkt\n(Bulgaria Air/Ryanair)'],
   ],
-  description:'Mailand ist mit nur 1h 40m Flugzeit das nächste Ziel — Direktflug ab DUS mit Eurowings. Das Navigli-Viertel mit seinen Kanälen ist die Aperitivo-Hochburg Italiens: ab 18 Uhr Drinks + gratis Buffet für ~€10. Corso Como und die Isola-Szene bieten Clubs bis 5 Uhr. Das Duomo di Milano leuchtet nachts orange — perfekt für Halloween-Fotos. Und die Mailänder feiern Halloween ausgiebig.',
+  description:'Sofia ist mit Abstand das günstigste Ziel — ein Bier kostet €1–2, Abendessen in einem guten Restaurant ~€8–12. Die bulgarische Hauptstadt überrascht mit einer lebhaften Ausgehszene rund um den Vitosha Boulevard und den Studentenvierteln. Im Hintergrund: das Vitosha-Gebirge, direkt an der Stadtgrenze. Die Alexander-Nevsky-Kathedrale leuchtet nachts golden — perfekte Halloween-Kulisse.',
   flightsOut:[
-    ['⭐ Empfohlen','EW\nEurowings','DUS → MXP\n30. Okt. früh','~07:00','~08:40','1h 40m','~€80','~€320'],
-    ['Vorabend','EW\nEurowings','DUS → MXP\n29. Okt. abends','~18:xx','~19:40','1h 40m','~€90','~€360'],
-    ['Mittag','ITA Airways\n(ex-Alitalia)','DUS → MXP\n30. Okt.','~12:xx','~13:50','1h 40m','~€100–130','~€400–520'],
-    ['Budget','FR\nRyanair','DUS → BGY\n30. Okt.','Verschieden','Verschieden','1h 45m','~€50–80','~€200–320'],
+    ['⭐ Empfohlen','Bulgaria Air\n(FB)','DUS → SOF\n30. Okt.','Morgens','~11:00','~2h 30m','~€80–120','~€320–480'],
+    ['Option 2','Ryanair\n(FR)','DUS → SOF\n30. Okt.','Verschieden','Verschieden','~2h 30m','~€50–90','~€200–360'],
+    ['Vorabend','Bulgaria Air\n(FB)','DUS → SOF\n29. Okt.','Abends','Abends','~2h 30m','~€90–130','~€360–520'],
+    ['Budget+','Wizz Air\n(W6)','DUS → SOF\n30. Okt.','Verschieden','Verschieden','~2h 30m','~€40–80','~€160–320'],
   ],
-  flightRet:['Eurowings / Ryanair  (MXP/BGY→DUS)','MXP → DUS  /  2. Nov.','Verschieden','Verschieden','1h 40m','~€70–100','~€280–400'],
-  flightNote:'✅  DUS (Düsseldorf) → MXP (Mailand-Malpensa): Direktflug mit Eurowings täglich, ~1h 40m.  Malpensa liegt 45 km nordwestlich vom Zentrum — Malpensa Express Zug ~52 Min., €13 ins Stadtzentrum.  Budget-Option: DUS → BGY (Bergamo/Orio al Serio) mit Ryanair — Bus nach Mailand ~1h, €5–6.  Buchen: eurowings.com · ryanair.com',
-  flightTotal:'€480 – €640 gesamt',
-  airbnbTitle:'Navigli / Porta Ticinese — 2-Zi.-Wohnung am Kanal',
+  flightRet:['Bulgaria Air / Ryanair  (SOF→DUS)','SOF → DUS  /  2. Nov.','Verschieden','Verschieden','~2h 30m','~€60–100','~€240–400'],
+  flightNote:'✅  DUS (Düsseldorf) → SOF (Sofia): Direktflüge mit Bulgaria Air und Ryanair.  Flughafen Sofia liegt 10 km östlich vom Zentrum — Metro Linie M1 (€0,80, 20 Min.) direkt ins Zentrum.  Buchen: bulgariaair.com · ryanair.com · wizzair.com · skyscanner.de',
+  flightTotal:'€320 – €560 gesamt',
+  airbnbTitle:'Vitosha Blvd / Zentrum — 2-Zi.-Wohnung',
   airbnbSpecs:[
-    ['🛏 2 Schlafzimmer'],['🚿 2 Bäder'],['🏗 Balkon/Terrasse',[],C.green],
-    ['👥 4 Gäste'],['❄ Klimaanlage ✓'],['🍹 Navigli Bars 1 Min',[],MIL_C],
+    ['🛏 2 Schlafzimmer'],['🚿 2 Bäder'],['🏗 Balkon ✓',[],C.green],
+    ['👥 4 Gäste'],['❄ Klimaanlage ✓'],['🏔 Vitosha-Blick',[],SOF_C],
   ],
-  airbnbLocation:'📌 Navigli — direkt an der Aperitivo-Meile, 15 Min. per Metro/Tram zum Duomo & Corso Como',
-  airbnbPricing:[['Pro Nacht','~€130'],['3 Nächte','~€390'],['Reinigung & Gebühren','~€60–80'],['Gesamt für 4 Pers.','~€450–470'],['Pro Person','~€113–118']],
-  airbnbSearchUrl:'https://www.airbnb.com/s/Navigli--Milan--Italy/homes?checkin=2025-10-30&checkout=2025-11-02&adults=4&min_bedrooms=2&room_types%5B%5D=Entire+home%2Fapt',
-  airbnbAlt:'📍 Alternativ in Brera/Isola suchen: airbnb.com/s/Brera--Milan (Designviertel, gleiche Daten)',
-  airbnbAltUrl:'https://www.airbnb.com/s/Brera--Milan--Italy/homes?checkin=2025-10-30&checkout=2025-11-02&adults=4&min_bedrooms=2&room_types%5B%5D=Entire+home%2Fapt',
+  airbnbLocation:'📌 Vitosha Blvd / Stadtzentrum — direkt an der besten Bar-Meile, 10 Min. zu Fuß zur Kathedrale',
+  airbnbPricing:[['Pro Nacht','~€60–80'],['3 Nächte','~€180–240'],['Reinigung & Gebühren','~€30–50'],['Gesamt für 4 Pers.','~€210–290'],['Pro Person','~€53–73']],
+  airbnbSearchUrl:'https://www.airbnb.com/s/Sofia--Bulgaria/homes?checkin=2025-10-30&checkout=2025-11-02&adults=4&min_bedrooms=2&room_types%5B%5D=Entire+home%2Fapt',
+  airbnbAlt:'📍 Alternativ im Studentenviertel suchen: airbnb.com/s/Studentski-Grad--Sofia (lebhafter, günstiger)',
+  airbnbAltUrl:'https://www.airbnb.com/s/Studentski-Grad--Sofia--Bulgaria/homes?checkin=2025-10-30&checkout=2025-11-02&adults=4&min_bedrooms=2&room_types%5B%5D=Entire+home%2Fapt',
   days:[
     {day:'TAG 1 — DO., 30. OKT.',date:'Ankunftstag',items:[
-      '✈  Eurowings landet MXP ~08:40 · Malpensa Express ins Zentrum',
-      '🏠  Einchecken in Navigli (Check-in ab 15 Uhr)',
-      '🚶  SANDEMANs Stadtführung 14:30 @ Duomo (2,5h, Trinkgeld)',
-      '   Duomo, Galleria Vittorio Emanuele, Castello Sforzesco',
-      '🍹  Aperitivo ab 18 Uhr am Naviglio Grande',
-      '   €8–10 Drink + gratis Buffet — Mailänder Tradition!',
-      '🌃  Erste Nacht: Navigli-Bars & Darsena-Platz',
+      '✈  Landet SOF ~11:00 · Metro M1 ins Zentrum (€0,80!)',
+      '🏠  Einchecken in der Vitosha-Nähe',
+      '🚶  SANDEMANs Free Tour 14:30 @ Alexander-Nevsky-Platz',
+      '   Kathedrale, Präsidentenpalast, Rotunde Sveti Georgi',
+      '🍺  Erste Biere am Vitosha Blvd: €1–2 pro Bier (kein Tippfehler!)',
+      '🌃  Erste Nacht: Vitosha Blvd Bars & Lounge-Cafés',
     ]},
     {day:'TAG 2 — FR., 31. OKT. 🎃',date:'HALLOWEEN-NACHT',items:[
-      '🍳  Pasta-Kochkurs 10:00 Uhr (3h, €70 p.P., Navigli)',
-      '   Risotto alla Milanese + Ossobuco + Tiramisu',
-      '🛍  Nachmittags: Brera Designviertel oder Modeboulevard',
-      '🎃  Halloween Kneipentour Navigli ab 21 Uhr · ~€20 p.P.',
-      '   Treffpunkt Darsena · 4 Bars · Shots · Kostüm-Contest',
-      '🎶  Ab 1 Uhr: Alcatraz oder Volt Club — Halloween Special',
-      '   Corso Como Party bis 5 Uhr morgens',
+      '🏔  Morgens: Vitosha-Berg Wanderung (Bus/Gondel ab Stadtrand)',
+      '   Bergblick über ganz Sofia — kostenloser Nationalpark',
+      '🍳  Bulgarischer Kochkurs 15:00 Uhr (3h, ~€45 p.P.)',
+      '   Shopska-Salat + Moussaka + Rakija-Verkostung',
+      '🎃  Halloween Kneipentour ab 22 Uhr · ~€15 p.P.',
+      '   Studentski Grad: Sin City · Yalta Club · Mixtape 5',
+      '   Clubs bis 5 Uhr morgens · €1 Bier die ganze Nacht',
     ]},
     {day:'TAG 3 — SA., 1. NOV.',date:'Erkunden & Ausgehen',items:[
-      '🌅  Ausschlafen — Mailands Nächte enden spät',
-      '☕  Frühstück: Cappuccino + Cornetto an der Bar (€2)',
-      '🏛  Duomo Dachterrasse (Blick über ganz Mailand, ~€14)',
-      '🛒  Mercato Metropolitano oder Fiera di Sinigaglia',
-      '🍝  Abendessen: Risotto Milanese in der Navigli-Trattoria',
-      '🌃  Letzte Nacht: Isola-Viertel Bars + Corso Como',
+      '🕌  Alexander-Nevsky-Kathedrale innen (kostenlos, atemberaubend)',
+      '🏛  Nationales Historisches Museum (optional)',
+      '🛒  Weiblicher Markt (Ženski Pazar): lokales Essen & Gewürze',
+      '🍽  Abendessen: Mehana-Restaurant — Schopska + Bier €8 gesamt',
+      '🌃  Letzte Nacht: Lozenets-Viertel Bars oder Yalta-Club-Afterparty',
     ]},
     {day:'TAG 4 — SO., 2. NOV.',date:'Abreisetag',items:[
-      '☕  Letzter Cappuccino an der Bar — nie im Sitzen!',
-      '🛍  Souvenirs: Panettone, Amaro, Design-Mitbringsel',
-      '🚂  Malpensa Express zum Flughafen (52 Min.)',
-      '✈  Eurowings MXP → DUS (Nachmittag)',
+      '☕  Banitsa (bulgarisches Blätterteig-Gebäck) zum Frühstück (€0,50)',
+      '🛍  Souvenirs: Rosen-Öl, Rakija, Mamarnitsa (Glücksbringer)',
+      '🚇  Metro M1 zum Flughafen (€0,80, 20 Min.)',
+      '✈  Bulgaria Air / Ryanair SOF → DUS (Nachmittag)',
     ]},
   ],
-  activityLinks:'Halloween Kneipentour: eventbrite.it → "Milan Halloween Bar Crawl"  ·  Kochkurs: cookly.app → "Milan Pasta Class"  ·  Stadtführung: neweuropetours.eu/milan  ·  Alcatraz Club: alcatrazmilano.com',
+  activityLinks:'Kneipentour: eventbrite.com → "Sofia Halloween Bar Crawl"  ·  Kochkurs: cookly.app → "Sofia Cooking Class"  ·  Stadtführung: neweuropetours.eu/sofia  ·  Yalta Club: yaltaclub.com',
   costRows:[
-    ['Hin- und Rückflug','Eurowings EW  DUS ↔ MXP (Direktflug)','~€170','~€680'],
-    ['Unterkunft','Airbnb Navigli — 3 Nächte (inkl. Gebühren)','~€115','~€460'],
-    ['Halloween Kneipentour','Bar Crawl Navigli / Darsena (31. Okt.)','€20','€80'],
-    ['Kochkurs','Pasta-Kochkurs Navigli — Risotto + Ossobuco','€70','€280'],
-    ['Stadtführung','SANDEMANs — Duomo (Trinkgeld)','~€12','~€48'],
-    ['Essen (3 Tage)','Trattoria, Aperitivo-Buffet, Bar-Frühstück','~€130','~€520'],
-    ['Getränke & Ausgehen','Navigli + Corso Como + Clubs (3 Nächte)','~€160','~€640'],
-    ['Sonstiges','Malpensa Express, Tram, Souvenirs','~€30','~€120'],
-    ['🏆  GESAMTSCHÄTZUNG','Mailand, 30. Okt. – 2. Nov. 2025','~€707','~€2.828'],
+    ['Hin- und Rückflug','Bulgaria Air / Ryanair  DUS ↔ SOF','~€140','~€560'],
+    ['Unterkunft','Airbnb Zentrum — 3 Nächte (inkl. Gebühren)','~€65','~€260'],
+    ['Halloween Kneipentour','Bar Crawl Sofia (31. Okt.)','~€15','~€60'],
+    ['Kochkurs','Bulgarische Küche — Moussaka + Rakija','~€45','~€180'],
+    ['Stadtführung','SANDEMANs — Alexander-Nevsky (Trinkgeld)','~€10','~€40'],
+    ['Essen (3 Tage)','Mehana, Banitsa, Markt — Ø €10–15/Mahlzeit','~€90','~€360'],
+    ['Getränke & Ausgehen','Vitosha Blvd + Clubs (€1 Bier, 3 Nächte)','~€120','~€480'],
+    ['Sonstiges','Metro, Uber, Souvenirs','~€25','~€100'],
+    ['🏆  GESAMTSCHÄTZUNG','Sofia, 30. Okt. – 2. Nov. 2025','~€510','~€2.040'],
   ],
-  costNote:'💡 Kürzester Flug dieser Auswahl (1h 40m ab DUS)!  Aperitivo-Zeit (18–21 Uhr): Drink + gratis Buffet ~€10 — spart Abendessenkosten.  Cappuccino an der Bar stehend: €1,50.  Budgetrahmen: €600–850 p.P.',
+  costNote:'💡 GÜNSTIGSTES ZIEL überhaupt: €1–2 Bier, €8 Abendessen, €0,80 Metro!  Budgetrahmen: €400–650 p.P.  Ideal wenn Ihr nach dem letzten Trip die Kasse schonen wollt — ohne auf Spaß zu verzichten.',
 };
 
 // ── Slide 1: Titelfolie ───────────────────────────────────────────────────────
@@ -356,13 +354,13 @@ function slide1(pres) {
   s.addShape('rect',{x:2.0,y:3.55,w:9.33,h:0.6,fill:{color:C.bgCard,transparency:20},line:{color:C.orange,pt:1},rounding:0.05});
   s.addText('Bereits bereist:   ✓ Riga   ✓ Athen   ✓ Tirana   ✓ Belgrad',{x:2.0,y:3.55,w:9.33,h:0.6,align:'center',fontSize:15,fontFace:'Calibri',color:C.gray,valign:'middle'});
   s.addText('DIE ZIELE STEHEN FEST — ES GEHT LOS!',{x:0.5,y:4.35,w:12.33,h:0.65,align:'center',fontSize:26,fontFace:'Trebuchet MS',bold:true,color:C.coral});
-  const pills=[['🇵🇹 LISSABON',LIS_C],['🇮🇹 MAILAND',MIL_C]];
+  const pills=[['🇵🇹 LISSABON',LIS_C],['🇧🇬 SOFIA',SOF_C]];
   pills.forEach(([label,col],i)=>{
     const px=2.17+i*4.5;
     s.addShape('rect',{x:px,y:5.15,w:4.2,h:0.75,fill:{color:C.bgDeep},line:{color:col,pt:2.5},rounding:0.08});
     s.addText(label,{x:px,y:5.15,w:4.2,h:0.75,align:'center',fontSize:24,fontFace:'Trebuchet MS',bold:true,color:C.white,valign:'middle'});
   });
-  s.addText('Beide Ziele: Direktflug ab DUS  ·  Lissabon 17–22°C · Mailand 12–16°C',{x:0,y:6.25,w:'100%',h:0.4,align:'center',fontSize:13,fontFace:'Calibri',color:C.dimGray,italic:true});
+  s.addText('Beide Ziele: Direktflug ab DUS  ·  Lissabon 17–22°C · Sofia 10–14°C',{x:0,y:6.25,w:'100%',h:0.4,align:'center',fontSize:13,fontFace:'Calibri',color:C.dimGray,italic:true});
   s.addShape('rect',{x:0,y:7.42,w:'100%',h:0.08,fill:{color:C.orange},line:{color:C.orange}});
 }
 
@@ -370,12 +368,12 @@ function slide1(pres) {
 function buildComparison(pres) {
   const s = pres.addSlide();
   s.background = { color: C.bg };
-  sectionHeader(s, '⚔️  DIREKTVERGLEICH — LISSABON vs. MAILAND', C.orange);
+  sectionHeader(s, '⚔️  DIREKTVERGLEICH — LISSABON vs. SOFIA', C.orange);
 
   const catW=3.4, cityW=4.55;
   const cols=[
     {label:'🇵🇹 LISSABON', color:LIS_C, x:catW+0.35},
-    {label:'🇮🇹 MAILAND',  color:MIL_C, x:catW+0.35+cityW+0.1},
+    {label:'🇧🇬 SOFIA',  color:SOF_C, x:catW+0.35+cityW+0.1},
   ];
 
   cols.forEach(col=>{
@@ -384,17 +382,17 @@ function buildComparison(pres) {
   });
 
   const rows=[
-    ['💰 Kosten p.P.',      '~€735',                          '~€707'],
-    ['✈ Flugdauer',         '3h 10m  ab DUS',                 '1h 40m  ab DUS  ✈ schnellste!'],
-    ['🛫 Flughafen',        'DUS — Eurowings / TAP',          'DUS — Eurowings / ITA / Ryanair'],
-    ['🍺 Bierpreis',        '€2–3  (Super Bock / Sagres)',    '€5–7  (Nastro Azzurro)'],
-    ['🌡 Wetter Ende Okt.', '17–22°C  ☀',                    '12–16°C  🧥'],
-    ['🎃 Halloween',        '⭐⭐⭐⭐  Clubs bis 6 Uhr',       '⭐⭐⭐⭐  Corso Como bis 5 Uhr'],
-    ['🏙 Viertel',          'Bairro Alto · Pink Street',      'Navigli · Corso Como · Isola'],
-    ['🌟 Highlight',        'Fado · Atlantik-Charme',         'Aperitivo + gratis Buffet ab 18h'],
-    ['🍳 Kochkurs',         '€110 p.P.',                      '€70 p.P.'],
-    ['🏠 Unterkunft p.P.',  '~€113–120',                      '~€113–118'],
-    ['💡 Stärke',           'Nightlife-Weltklasse + Wärme',   'Kürzester Flug + Fashion + Pasta'],
+    ['💰 Kosten p.P.',      '~€735',                          '~€510  💸 Günstigster!'],
+    ['✈ Flugdauer',         '3h 10m  ab DUS',                 '~2h 30m  ab DUS'],
+    ['🛫 Flughafen',        'DUS — Eurowings / TAP',          'DUS — Bulgaria Air / Ryanair'],
+    ['🍺 Bierpreis',        '€2–3  (Super Bock / Sagres)',    '€1–2  (günstigstes Eu. 🏆)'],
+    ['🌡 Wetter Ende Okt.', '17–22°C  ☀',                    '10–14°C  🧥'],
+    ['🎃 Halloween',        '⭐⭐⭐⭐  Clubs bis 6 Uhr',       '⭐⭐⭐⭐  Yalta · Sin City bis 5h'],
+    ['🏙 Viertel',          'Bairro Alto · Pink Street',      'Vitosha Blvd · Studentski Grad'],
+    ['🌟 Highlight',        'Fado · Atlantik-Charme',         'Alexander-Nevsky · Vitosha-Berg'],
+    ['🍳 Kochkurs',         '€110 p.P.',                      '~€45 p.P.'],
+    ['🏠 Unterkunft p.P.',  '~€113–120',                      '~€53–73  (3× günstiger!)'],
+    ['💡 Stärke',           'Nightlife-Weltklasse + Wärme',   'Extremes Budget + Überraschung'],
   ];
 
   const rowH=0.5;
@@ -460,7 +458,7 @@ function buildHallOfFame(pres) {
   s.addText('TRIP #5 — DIE WAHL IST GEFALLEN',{x:nx+0.15,y:ny+1.46,w:nw-0.3,h:0.44,align:'center',fontSize:12,fontFace:'Trebuchet MS',bold:true,color:C.amber});
 
   const opts=[['🇵🇹  LISSABON',LIS_C,'Nightlife-Hauptstadt\ndes Atlantiks · 17–22°C'],
-              ['🇮🇹  MAILAND', MIL_C,'Kürzester Flug (1h40)\nNavigli · Aperitivo · Mode']];
+              ['🇧🇬  SOFIA', SOF_C,'Günstigstes Ziel: €1 Bier\nVitosha · Clubs · Kathedrale']];
   opts.forEach(([lbl,col,sub],oi)=>{
     const py = ny+2.02+oi*1.38;
     s.addShape('rect',{x:nx+0.2,y:py,w:nw-0.4,h:0.58,fill:{color:C.bgCard},line:{color:col,pt:2},rounding:0.06});
@@ -483,12 +481,12 @@ async function main() {
   const pres = new PptxGenJS();
   pres.layout = 'LAYOUT_WIDE';
   pres.author = 'Halloween-Trip 2025';
-  pres.title = 'Halloween-Trip 2025 – Lissabon vs. Mailand';
+  pres.title = 'Halloween-Trip 2025 – Lissabon vs. Sofia';
 
   console.log('Erstelle Folien...');
   slide1(pres); console.log('  ✓ Folie 1: Titelfolie');
 
-  const cities=[LISSABON,MAILAND];
+  const cities=[LISSABON,SOFIA];
   cities.forEach((cfg,ci)=>{
     const base=(ci*5)+2;
     buildOverview(pres,cfg);   console.log(`  ✓ Folie ${base}: ${cfg.name} Übersicht`);
