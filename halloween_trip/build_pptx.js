@@ -11,10 +11,8 @@ const C = {
   white:'FFFFFF', offWhite:'E8E8E8', gray:'9CA3AF',
   dimGray:'6B7280', green:'22C55E', gold:'FFD700', black:'000000',
 };
-const LIS_C  = 'FF8C00';
-const MAD_C  = 'E6321E';
-const ROM_C  = 'D4783A';
-const MALT_C = '1EB4C8';
+const LIS_C = 'FF8C00'; // Orange (Lissabon)
+const MIL_C = 'C8003C'; // Rosso Milano (Mailand)
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 function sectionHeader(s, title, accent) {
@@ -265,245 +263,84 @@ const LISSABON = {
   costNote:'💡 Budgetrahmen: €600–900 p.P. je nach Partylust.  Bier ab €2–3, Supermarkt-Runs helfen sparen.  Clubs (Lux Frágil, Brunch Electronik) kosten je ~€20–30 extra.  Leitungswasser in Restaurants gratis.',
 };
 
-const MADRID = {
-  num:2, name:'Madrid', country:'Spanien', flag:'🇪🇸', accent:MAD_C,
-  heroImg:'madrid_hero.png', mapImg:'madrid_map.png', airbnbImg:'madrid_airbnb.png',
-  iataLabel:'MAD (Madrid)',
-  tagline:'Die Stadt, die niemals schläft — buchstäblich',
-  subtitle:'Malasaña · Chueca · Gran Vía · La Latina · Clubs bis 7 Uhr morgens',
+const MAILAND = {
+  num:2, name:'Mailand', country:'Italien', flag:'🇮🇹', accent:MIL_C,
+  heroImg:'milan_hero.png', mapImg:'milan_map.png', airbnbImg:'milan_airbnb.png',
+  iataLabel:'MXP (Mailand-Malpensa)',
+  tagline:'Aperitivo, Mode & Nachtleben an den Navigli',
+  subtitle:'Navigli · Corso Como · Duomo · Brera · Clubs bis 5 Uhr',
   stats:[
-    ['✈ Flugdauer','2h 30m\nab DUS'],['🍺 Bier','€2 – €4\n(Caña/Tubo)'],
-    ['🌡 Wetter','18–20°C ☀\nEnde Oktober'],['💰 Kosten ca.','~€712\npro Person'],
-    ['🏙 Nightlife','⭐⭐⭐⭐⭐\nClubs bis 7 Uhr'],['📍 Ab Flughafen','Nur DUS\n(Iberia/Eurowings)'],
+    ['✈ Flugdauer','1h 40m\nab DUS'],['🍺 Bier','€5–7\n(Nastro Azzurro)'],
+    ['🌡 Wetter','12–16°C\nEnde Oktober'],['💰 Kosten ca.','~€700\npro Person'],
+    ['🏙 Nightlife','⭐⭐⭐⭐\nNavigli & Corso Como'],['📍 Ab Flughafen','DUS direkt!\n(Eurowings/ITA)'],
   ],
-  description:'Madrid ist das wärmste Halloween Europas. Der 31. Oktober ist ein Freitag UND der 1. November ist Allerheiligen — gesetzlicher Feiertag in Spanien. Heißt: alle sind aus, Clubs offen bis 7 Uhr morgens. Malasañas Boheme-Bar-Szene, kostenlose Tapas bei El Tigre, Vermouth vom Fass in 150 Jahre alten Bodegas, und 7-stöckiger Teatro Kapital Club.',
+  description:'Mailand ist mit nur 1h 40m Flugzeit das nächste Ziel — Direktflug ab DUS mit Eurowings. Das Navigli-Viertel mit seinen Kanälen ist die Aperitivo-Hochburg Italiens: ab 18 Uhr Drinks + gratis Buffet für ~€10. Corso Como und die Isola-Szene bieten Clubs bis 5 Uhr. Das Duomo di Milano leuchtet nachts orange — perfekt für Halloween-Fotos. Und die Mailänder feiern Halloween ausgiebig.',
   flightsOut:[
-    ['⭐ Vorabend\n29. Okt.','Iberia\n(IB3166)','DUS → MAD\n29. Okt. abends','~19:55','~22:35','2h 30m','~€95','~€380'],
-    ['Frühabflug\n30. Okt.','Iberia\n(IB3162)','DUS → MAD\n30. Okt. morgens','~06:20','~08:50','2h 30m','~€75','~€300'],
-    ['Mittag\n30. Okt.','Eurowings\n(EW)','DUS → MAD\n30. Okt. mittags','~13:xx','~15:30','2h 30m','~€90','~€360'],
-    ['Premium','Vueling\n(VY)','DUS → MAD\n30. Okt.','Verschieden','Verschieden','2h 30m','€100–130','€400–520'],
+    ['⭐ Empfohlen','EW\nEurowings','DUS → MXP\n30. Okt. früh','~07:00','~08:40','1h 40m','~€80','~€320'],
+    ['Vorabend','EW\nEurowings','DUS → MXP\n29. Okt. abends','~18:xx','~19:40','1h 40m','~€90','~€360'],
+    ['Mittag','ITA Airways\n(ex-Alitalia)','DUS → MXP\n30. Okt.','~12:xx','~13:50','1h 40m','~€100–130','~€400–520'],
+    ['Budget','FR\nRyanair','DUS → BGY\n30. Okt.','Verschieden','Verschieden','1h 45m','~€50–80','~€200–320'],
   ],
-  flightRet:['Iberia / Eurowings  (MAD→DUS)','MAD → DUS  /  2. Nov.','Verschieden','Verschieden','2h 40m','~€70–90','~€280–360'],
-  flightNote:'ℹ  DUS (Düsseldorf) ist der empfohlene Abflughafen — Direktflüge mit Iberia (3×/Tag), Eurowings & Vueling.  DTM hat keine Direktverbindung nach Madrid.  FMO erfordert Umstieg.  Flughafen zum Stadtzentrum: Metro Linie 8 (€5) oder Taxi (~€35 Festpreis).',
-  flightTotal:'€580 – €740 gesamt',
-  airbnbTitle:'Sonder Malasaña — 2 SZ · Balkon · Bars vor der Haustür',
+  flightRet:['Eurowings / Ryanair  (MXP/BGY→DUS)','MXP → DUS  /  2. Nov.','Verschieden','Verschieden','1h 40m','~€70–100','~€280–400'],
+  flightNote:'✅  DUS (Düsseldorf) → MXP (Mailand-Malpensa): Direktflug mit Eurowings täglich, ~1h 40m.  Malpensa liegt 45 km nordwestlich vom Zentrum — Malpensa Express Zug ~52 Min., €13 ins Stadtzentrum.  Budget-Option: DUS → BGY (Bergamo/Orio al Serio) mit Ryanair — Bus nach Mailand ~1h, €5–6.  Buchen: eurowings.com · ryanair.com',
+  flightTotal:'€480 – €640 gesamt',
+  airbnbTitle:'Navigli / Porta Ticinese — 2-Zi.-Wohnung am Kanal',
   airbnbSpecs:[
-    ['🛏 2 Schlafzimmer'],['🚿 2 Bäder'],['🏗 Balkon ✓',[],C.green],
-    ['👥 4 Gäste'],['❄ Klimaanlage ✓'],['🎸 Malasaña-Bars 1 Min'],
+    ['🛏 2 Schlafzimmer'],['🚿 2 Bäder'],['🏗 Balkon/Terrasse',[],C.green],
+    ['👥 4 Gäste'],['❄ Klimaanlage ✓'],['🍹 Navigli Bars 1 Min',[],MIL_C],
   ],
-  airbnbLocation:'📌 Malasaña — 1 Min zu Calle de la Palma, 5 Min zur Gran Vía, 10 Min zur Puerta del Sol',
-  airbnbPricing:[['Pro Nacht (Sonder-verwaltet)','~€150'],['3 Nächte','~€450'],['Reinigung & Gebühren','~€60–80'],['Gesamt für 4 Pers.','~€510–530'],['Pro Person','~€128–133']],
-  airbnbUrl:'airbnb.com/rooms/47308216  (Sonder Malasaña — professionell verwaltet, 24/7-Support)',
-  airbnbAlt:'Budget-Alternative: 2-Zi. zentral Madrid ~€80–110/Nacht → ~€310 Gesamt → ~€78 p.P.',
-  days:[
-    {day:'TAG 1 — MI., 29. OKT.',date:'Ankunft (Abends)',items:[
-      '✈  Iberia landet MAD ~22:35 ab DUS',
-      '🚇  Metro Linie 8 ins Zentrum (~€5, 20 Min.)',
-      '🏠  Einchecken in Malasaña',
-      '🍷  Bodega de la Ardosa: Vermouth vom Fass seit 1892',
-      '🍺  Malasaña Kneipenbummel: Calle de la Palma, Tupperware',
-      '   Bier: Mahou 5 Estrellas ~€3 · La Vía Láctea bis 3 Uhr',
-    ]},
-    {day:'TAG 2 — DO., 30. OKT.',date:'Stadtführung & Kochkurs',items:[
-      '🚶  SANDEMANs Stadtführung 11:30 Uhr @ Plaza Mayor (2,5h)',
-      '   Königspalast, Sol, La Latina, historisches Madrid',
-      '🥘  Mittagessen Tapas in der Calle de la Cava Baja',
-      '🍳  Kochkurs Cooking Point 17:30–21:30 Uhr (€85 p.P.)',
-      '   7 Tapas-Rezepte + Sangría · Calle de Moratín, 11',
-      '   Buchung: cookingpoint.es',
-      '🌃  Danach: Chueca-Bar-Szene + El Tigre (kostenlose Tapas!)',
-    ]},
-    {day:'TAG 3 — FR., 31. OKT. 🎃',date:'HALLOWEEN-NACHT',items:[
-      '🌞  Ausschlafen — Madrider Nächte gehen bis 7 Uhr',
-      '🏛  Nachmittags: Prado-Museum oder Retiro-Park',
-      '🎃  Halloween-Kneipentour 22 Uhr · €20 p.P.',
-      '   Treffpkt.: Mulberry\'s Bar, Calle de Núñez de Arce 9',
-      '   4 Bars · Tequila-Shots · €100 Kostüm-Wettbewerb',
-      '🎶  Ab 1 Uhr: Teatro Kapital — 7 Etagen, offen bis 6 Uhr',
-      '   Calle Atocha 125 · ~€21 Eintritt · zentralster Club',
-    ]},
-    {day:'TAG 4 — SA., 1. NOV. 🎉 + SO., 2. NOV.',date:'Feiertag + Abreise',items:[
-      '🌞  1. Nov. = ALLERHEILIGEN (gesetzl. Feiertag in Spanien)',
-      '☕  Brunch: Churros con Chocolate bei Chocolatería San Ginés',
-      '🏺  Mercado de San Miguel: Pintxos + lokale Weine',
-      '🍺  La Hora del Vermut (~12–15 Uhr) in Malasaña',
-      '🌃  Letzte Nacht: Malasaña oder Lavapiés Spät-Bars',
-      '',
-      '✈  2. NOV.: Rückflug DUS (Iberia/Eurowings)',
-      '   Metro Linie 8 zum Flughafen (~€5, 45 Min. einplanen)',
-    ]},
-  ],
-  activityLinks:'Halloween-Kneipentour: eventbrite.es/e/1037812363717  ·  Kochkurs: cookingpoint.es  ·  Stadtführung: neweuropetours.eu/madrid  ·  Teatro Kapital: teatrokapital.com',
-  costRows:[
-    ['Hin- und Rückflug','Iberia / Eurowings  DUS ↔ MAD','~€175','~€700'],
-    ['Unterkunft','Airbnb Malasaña — 3 Nächte (inkl. Gebühren)','~€130','~€520'],
-    ['Halloween-Kneipentour','Bar Crawl Madrid — Puerta del Sol (31. Okt.)','€20','€80'],
-    ['Kochkurs','Cooking Point — 7 Tapas + Sangría (4h)','€85','€340'],
-    ['Stadtführung','SANDEMANs — Plaza Mayor (Trinkgeld)','~€12','~€48'],
-    ['Essen (3 Tage)','Tapas, Churros, Markt — Ø €15–20/Mahlzeit','~€115','~€460'],
-    ['Getränke & Ausgehen','Malasaña + Chueca + Halloween-Club (3 Nächte)','~€140','~€560'],
-    ['Sonstiges','Metro, Uber, Souvenirs, Flughafen-Taxi','~€35','~€140'],
-    ['🏆  GESAMTSCHÄTZUNG','Madrid, 29./30. Okt. – 2. Nov. 2025','~€712','~€2.848'],
-  ],
-  costNote:'💡 Budgetrahmen: €600–900 p.P.  El Tigre Bar: RIESIGE kostenlose Tapas-Teller zum €3-Bier — unbedingt nutzen!  31. Okt. ist Freitag + 1. Nov. Nationalfeiertag = bestes Halloween Europas 2025.',
-};
-
-const ROM = {
-  num:3, name:'Rom', country:'Italien', flag:'🇮🇹', accent:ROM_C,
-  heroImg:'rome_hero.png', mapImg:'rome_map.png', airbnbImg:'rome_airbnb.png',
-  iataLabel:'CIA/FCO (Rom)',
-  tagline:'Die Ewige Stadt — auf die partyfähige Art',
-  subtitle:'Trastevere · Testaccio · Pigneto · Campo de\'Fiori · Clubs bis 5 Uhr',
-  stats:[
-    ['✈ Flugdauer','2h 15m\nab DTM'],['🍺 Bier','€4 – €6\n(Peroni/Moretti)'],
-    ['🌡 Wetter','16–19°C\nEnde Oktober'],['💰 Kosten ca.','~€597\npro Person'],
-    ['🏙 Nightlife','⭐⭐⭐⭐\nTestaccio & Pigneto'],['📍 Ab Flughafen','DTM (Ryanair)\noder DUS (Eurowings)'],
-  ],
-  description:'Rom ist das günstigste Ziel — dank Ryanair direkt ab DTM (Dortmund) zum Flughafen Ciampino. Trastevere ist eines der schönsten Ausgehviertel Europas: enges Kopfsteinpflaster, authentische Ristoranti, Bars bis 2 Uhr. Clubs in Testaccio und Pigneto gehen bis 5 Uhr. Kolosseum und Forum Romanum sind von außen kostenlos. Aperitivo-Zeit (ab 18 Uhr): kostenlose Snacks zum €5-Drink.',
-  flightsOut:[
-    ['⭐ Empfohlen','FR (Ryanair)','DTM → CIA\n30. Okt. morgens','~08:30','~10:45','2h 15m','~€55','~€220'],
-    ['Vorabend 29.10.','FR (Ryanair)','DTM → CIA\n29. Okt. abends','~18:xx','~20:xx','2h 15m','~€65','~€260'],
-    ['Ab DUS','EW\nEurowings','DUS → FCO\n30. Okt.','Verschieden','Verschieden','2h 20m','~€75–90','~€300–360'],
-    ['Premium','ITA Airways','DUS → FCO\n30. Okt.','Verschieden','Verschieden','2h 20m','€90–130','€360–520'],
-  ],
-  flightRet:['FR (Ryanair)  CIA → DTM','CIA → DTM  /  2. Nov.','Verschieden','Verschieden','2h 15m','~€45–65','~€180–260'],
-  flightNote:'✅  DTM (Dortmund) → CIA (Ciampino): günstigste Option via Ryanair! Ciampino liegt 12 km südlich von Rom (Bus/Metro ~40 Min., ~€7).  DUS → Fiumicino (FCO) mit Eurowings — 30 Min. per Expresszug ins Zentrum (~€14).  Buchen: ryanair.com · skyscanner.de',
-  flightTotal:'€400 – €520 gesamt',
-  airbnbTitle:'Trastevere / Centro Storico — 2-Zi.-Wohnung mit Terrasse',
-  airbnbSpecs:[
-    ['🛏 2 Schlafzimmer'],['🚿 2 Bäder'],['🏗 Terrasse/Dachterrasse ✓',[],C.green],
-    ['👥 4 Gäste'],['❄ Klimaanlage ✓'],['🍕 Trastevere-Lage'],
-  ],
-  airbnbLocation:'📌 Trastevere — Roms schönstes Ausgehviertel, 5 Min. zum Tiber, 10 Min. zum Campo de\'Fiori',
-  airbnbPricing:[['Pro Nacht','~€120'],['3 Nächte','~€360'],['Reinigung & Gebühren','~€60–80'],['Gesamt für 4 Pers.','~€420–440'],['Pro Person','~€105–110']],
-  airbnbUrl:'airbnb.com → Suche: Trastevere, 4 Gäste, 2 SZ, Terrasse/Balkon, 30. Okt.–2. Nov.',
-  airbnbAlt:'Alternativ: Prati (nahe Vatikan), Pigneto (angesagt) oder Testaccio (Clubs vor der Tür)',
+  airbnbLocation:'📌 Navigli — direkt an der Aperitivo-Meile, 15 Min. per Metro/Tram zum Duomo & Corso Como',
+  airbnbPricing:[['Pro Nacht','~€130'],['3 Nächte','~€390'],['Reinigung & Gebühren','~€60–80'],['Gesamt für 4 Pers.','~€450–470'],['Pro Person','~€113–118']],
+  airbnbSearchUrl:'https://www.airbnb.com/s/Navigli--Milan--Italy/homes?checkin=2025-10-30&checkout=2025-11-02&adults=4&min_bedrooms=2&room_types%5B%5D=Entire+home%2Fapt',
+  airbnbAlt:'📍 Alternativ in Brera/Isola suchen: airbnb.com/s/Brera--Milan (Designviertel, gleiche Daten)',
+  airbnbAltUrl:'https://www.airbnb.com/s/Brera--Milan--Italy/homes?checkin=2025-10-30&checkout=2025-11-02&adults=4&min_bedrooms=2&room_types%5B%5D=Entire+home%2Fapt',
   days:[
     {day:'TAG 1 — DO., 30. OKT.',date:'Ankunftstag',items:[
-      '✈  Ryanair landet CIA ~10:45 · Bus/Metro ins Zentrum (~40 Min.)',
-      '🏠  Einchecken in Trastevere',
-      '🏛  Kolosseum-Außenansicht & Forum Romanum (kostenlos!)',
-      '🍷  Aperol Spritz am Campo de\'Fiori zum Sonnenuntergang',
-      '🍝  Abendessen Trastevere: Pasta Cacio e Pepe ~€15',
-      '🍺  Erste Bar-Nacht: Trastevere-Gassen, Peroni €4–5',
+      '✈  Eurowings landet MXP ~08:40 · Malpensa Express ins Zentrum',
+      '🏠  Einchecken in Navigli (Check-in ab 15 Uhr)',
+      '🚶  SANDEMANs Stadtführung 14:30 @ Duomo (2,5h, Trinkgeld)',
+      '   Duomo, Galleria Vittorio Emanuele, Castello Sforzesco',
+      '🍹  Aperitivo ab 18 Uhr am Naviglio Grande',
+      '   €8–10 Drink + gratis Buffet — Mailänder Tradition!',
+      '🌃  Erste Nacht: Navigli-Bars & Darsena-Platz',
     ]},
     {day:'TAG 2 — FR., 31. OKT. 🎃',date:'HALLOWEEN-NACHT',items:[
-      '🍳  Pasta-Kochkurs 10:00 Uhr (3h, €65 p.P., Testaccio)',
-      '   Frische Pasta + Cacio e Pepe + Tiramisu + Wein',
-      '🚶  SANDEMANs Free Tour 15:30 @ Piazza Venezia (2,5h)',
-      '🕙  Halloween-Kneipentour 21 Uhr · ~€20 p.P.',
-      '   Treffpunkt: Nähe Trevi-Brunnen · 4 Bars · Shots',
-      '   Kostüm-Wettbewerb · VIP-Clubeintritt',
-      '🎉  Danach: Testaccio Clubs bis 5 Uhr (Rashomon, Goa Club)',
+      '🍳  Pasta-Kochkurs 10:00 Uhr (3h, €70 p.P., Navigli)',
+      '   Risotto alla Milanese + Ossobuco + Tiramisu',
+      '🛍  Nachmittags: Brera Designviertel oder Modeboulevard',
+      '🎃  Halloween Kneipentour Navigli ab 21 Uhr · ~€20 p.P.',
+      '   Treffpunkt Darsena · 4 Bars · Shots · Kostüm-Contest',
+      '🎶  Ab 1 Uhr: Alcatraz oder Volt Club — Halloween Special',
+      '   Corso Como Party bis 5 Uhr morgens',
     ]},
-    {day:'TAG 3 — SA., 1. NOV.',date:'Sightseeing & Ausgehen',items:[
-      '🏛  Vatikan & Piazza Navona (früh, vor den Massen)',
-      '🍕  Mittag: Original Pizza al Taglio €3–5 pro Stück',
-      '🥂  Aperitivo-Zeit ab 18 Uhr am Campo de\'Fiori',
-      '   Spritz + kostenlose Snacks in vielen Bars',
-      '🌃  Testaccio Clubs: Rashomon, Goa Club (ab 1 Uhr)',
-      '   Oder Pigneto-Bars: angesagtes Künstler-Viertel',
-    ]},
-    {day:'TAG 4 — SO., 2. NOV.',date:'Abreisetag',items:[
-      '☕  Espresso & Cornetto (€2 an der Bar stehend — echt so!)',
-      '🛍  Souvenirs: Campo de\'Fiori Markt',
-      '🚌  Bus CIA (Ryanair) oder Zug FCO (Eurowings)',
-      '✈  Ryanair CIA → DTM (Mittag/Abend)',
-    ]},
-  ],
-  activityLinks:'Kneipentour: viator.com → "Rome Halloween Pub Crawl"  ·  Kochkurs: cookly.app → "Rome Pasta Class"  ·  Stadtführung: neweuropetours.eu/rome  ·  Ryanair: ryanair.com',
-  costRows:[
-    ['Hin- und Rückflug','Ryanair FR  DTM ↔ CIA (Ciampino)','~€120','~€480'],
-    ['Unterkunft','Airbnb Trastevere — 3 Nächte (inkl. Gebühren)','~€110','~€440'],
-    ['Halloween-Kneipentour','Halloween Pub Crawl Rom (31. Okt.)','€20','€80'],
-    ['Kochkurs','Pasta-Kochkurs Testaccio — Pasta + Tiramisu + Wein','€65','€260'],
-    ['Stadtführung','SANDEMANs — Piazza Venezia (Trinkgeld)','~€12','~€48'],
-    ['Essen (3 Tage)','Pasta, Pizza al Taglio, Aperitivo — Ø €15–20','~€110','~€440'],
-    ['Getränke & Ausgehen','Trastevere + Testaccio + Pigneto (3 Nächte)','~€130','~€520'],
-    ['Sonstiges','Bus CIA, Metro, Souvenirs','~€30','~€120'],
-    ['🏆  GESAMTSCHÄTZUNG','Rom, 30. Okt. – 2. Nov. 2025','~€597','~€2.388'],
-  ],
-  costNote:'💡 Günstigstes Ziel dank Ryanair ab DTM!  Aperitivo-Zeit (18–20 Uhr): kostenlose Snacks zum €5-Drink in vielen Bars.  Kolosseum + Forum Romanum Außenansicht = kostenlos.  Budgetrahmen: €500–700 p.P.',
-};
-
-const MALTA = {
-  num:4, name:'Malta', country:'Valletta', flag:'🇲🇹', accent:MALT_C,
-  heroImg:'malta_hero.png', mapImg:'malta_map.png', airbnbImg:'malta_airbnb.png',
-  iataLabel:'MLA (Malta)',
-  tagline:'Wärmstes Ziel — Mittelmeer im Oktober',
-  subtitle:'Paceville · Sliema · Valletta · Blaue Lagune · Cisk Lager',
-  stats:[
-    ['✈ Flugdauer','~3h 00m\nab DUS'],['🍺 Bier','€2 – €3\n(Cisk Lager)'],
-    ['🌡 Wetter','22–24°C ☀☀\nWärmstes Ziel!'],['💰 Kosten ca.','~€631\npro Person'],
-    ['🏙 Nightlife','⭐⭐⭐⭐\nPaceville Clubs'],['📍 Ab Flughafen','FMO / DTM\n(Ryanair direkt)'],
-  ],
-  description:'Malta ist mit 22–24°C das WÄRMSTE europäische Ziel dieser Auswahl — und Ende Oktober noch Badesaison! Die Insel bietet UNESCO-Welterbe Valletta, das mittelalterliche Mdina und das Nachtleben von Paceville (St. Julian\'s). Halloween in den Clubs von Paceville ist eine eigene Kategorie. Und das Cisk Lager gehört zu den günstigsten Bieren Europas.',
-  flightsOut:[
-    ['⭐ Empfohlen','FR\nRyanair','FMO → MLA\n30. Okt.','Morgens','~10:30','~3h 00m','~€60–90','~€240–360'],
-    ['Option 2','FR\nRyanair','DTM → MLA\n30. Okt.','Morgens','~10:45','~3h 00m','~€65–95','~€260–380'],
-    ['Vorabend\n29. Okt.','FR\nRyanair','FMO → MLA\n29. Okt.','Abends','Abends','~3h 00m','~€70–100','~€280–400'],
-    ['DUS-Passagiere','Umstieg\n(z.B. LH/EW)','DUS → FRA/MUC\n→ MLA','—','—','5–7h','~€120–180','~€480–720'],
-  ],
-  flightRet:['FR Ryanair  (MLA→FMO/DTM)','MLA → FMO oder DTM  /  2. Nov.','Verschieden','Verschieden','~3h 00m','~€50–90','~€200–360'],
-  flightNote:'⚠️  KEIN Direktflug ab DUS (Düsseldorf) nach Malta!  Direktflüge ab FMO (Münster/Osnabrück) und DTM (Dortmund) mit Ryanair.  FMO liegt ~100 km von DUS entfernt (1,5h Fahrt), DTM ~70 km (1h Fahrt).  Empfehlung: Fahrgemeinschaft nach FMO oder DTM zum Abflug.  Buchen: ryanair.com · skyscanner.de',
-  flightTotal:'€400 – €560 gesamt',
-  airbnbTitle:'St. Julian\'s / Sliema — 2-Zi.-Wohnung mit Terrasse & Meerblick',
-  airbnbSpecs:[
-    ['🛏 2 Schlafzimmer'],['🚿 2 Bäder'],['🏗 Terrasse ✓',[],C.green],
-    ['👥 4 Gäste'],['❄ Klimaanlage ✓'],['🌊 Meerblick mögl.',[],MALT_C],
-  ],
-  airbnbLocation:'📌 St. Julian\'s / Paceville — direkt am Nachtleben, 2 Min. zu Hugo\'s Lounge & Beach Clubs',
-  airbnbPricing:[['Pro Nacht','~€95'],['3 Nächte','~€285'],['Reinigung & Gebühren','~€50–70'],['Gesamt für 4 Pers.','~€335–355'],['Pro Person','~€84–89']],
-  airbnbSearchUrl:'https://www.airbnb.com/s/St-Julian%27s--Malta/homes?checkin=2025-10-30&checkout=2025-11-02&adults=4&min_bedrooms=2&room_types%5B%5D=Entire+home%2Fapt',
-  airbnbAlt:'📍 Alternativ in Sliema suchen: airbnb.com/s/Sliema--Malta (ruhiger, Wasserfront, gleiche Daten)',
-  airbnbAltUrl:'https://www.airbnb.com/s/Sliema--Malta/homes?checkin=2025-10-30&checkout=2025-11-02&adults=4&min_bedrooms=2&room_types%5B%5D=Entire+home%2Fapt',
-  days:[
-    {day:'TAG 1 — DO., 30. OKT.',date:'Ankunftstag',items:[
-      '✈  Eurowings landet MLA ~10:00 · Taxi nach St. Julian\'s',
-      '🏠  Einchecken · erstes kühles Cisk-Bier auf der Terrasse',
-      '🏛  Valletta Altstadt-Spaziergang (UNESCO-Welterbe)',
-      '🌊  Sliema Waterfront zum Sonnenuntergang',
-      '🍺  Erste Bar-Nacht in Paceville: Hugo\'s Lounge',
-      '   Cisk 0,5l: ~€2,50 · T-Shirt-Wetter um Mitternacht!',
-    ]},
-    {day:'TAG 2 — FR., 31. OKT. 🎃',date:'HALLOWEEN-NACHT',items:[
-      '⛵  Tagesausflug Blaue Lagune (Bootsfahrt, ~€35 p.P.)',
-      '   Kristallklares Mittelmeer · letztes Bad im Oktober!',
-      '🍳  Maltesischer Kochkurs nachmittags (€65 p.P.)',
-      '   Kaninchen-Eintopf (Fenek) + Pastizzi + lokaler Wein',
-      '🎃  Halloween in Paceville ab 22 Uhr',
-      '   Clubmeile: Sky Club · Footloose · Level 22',
-      '   Bis 4 Uhr morgens · alle mit Halloween-Deko',
-    ]},
-    {day:'TAG 3 — SA., 1. NOV.',date:'Malta Erkunden',items:[
-      '🏰  Mdina: "Die Stille Stadt" — mittelalterl. Festungsstadt',
-      '🐟  Marsaxlokk Fischmarkt: frischer Fang, bunte Boote',
-      '🍺  Mittagspause: Pasta + Cisk am Hafen (~€12)',
-      '🌊  Nachmittag: Baden an den Felsenbädern (noch warm!)',
-      '🌃  Letzte Nacht: Paceville + Strand-Bars',
+    {day:'TAG 3 — SA., 1. NOV.',date:'Erkunden & Ausgehen',items:[
+      '🌅  Ausschlafen — Mailands Nächte enden spät',
+      '☕  Frühstück: Cappuccino + Cornetto an der Bar (€2)',
+      '🏛  Duomo Dachterrasse (Blick über ganz Mailand, ~€14)',
+      '🛒  Mercato Metropolitano oder Fiera di Sinigaglia',
+      '🍝  Abendessen: Risotto Milanese in der Navigli-Trattoria',
+      '🌃  Letzte Nacht: Isola-Viertel Bars + Corso Como',
     ]},
     {day:'TAG 4 — SO., 2. NOV.',date:'Abreisetag',items:[
-      '☀  Frühstück auf der Terrasse bei 20°C',
-      '🥐  Pastizzi zum Frühstück (Ricotta-Blätterteig, €0,50!)',
-      '🏖  Letzte Stunde am Meer (badefertig!)',
-      '🛍  Souvenirs: Maltesisches Kreuz, Ftira-Brot, Cisk-Sixpack',
-      '✈  Eurowings/Ryanair Rückflug nach DUS',
+      '☕  Letzter Cappuccino an der Bar — nie im Sitzen!',
+      '🛍  Souvenirs: Panettone, Amaro, Design-Mitbringsel',
+      '🚂  Malpensa Express zum Flughafen (52 Min.)',
+      '✈  Eurowings MXP → DUS (Nachmittag)',
     ]},
   ],
-  activityLinks:'Bootsausflug Blaue Lagune: katarinaLine.com oder lokal buchen  ·  Kochkurs: experiencemalta.com  ·  Stadtführung: visitvalletta.mt  ·  Paceville Clubs: hugo.com.mt',
+  activityLinks:'Halloween Kneipentour: eventbrite.it → "Milan Halloween Bar Crawl"  ·  Kochkurs: cookly.app → "Milan Pasta Class"  ·  Stadtführung: neweuropetours.eu/milan  ·  Alcatraz Club: alcatrazmilano.com',
   costRows:[
-    ['Hin- und Rückflug','Ryanair  FMO/DTM ↔ MLA  (+ Anfahrt ~€15)','~€140','~€560'],
-    ['Unterkunft','Airbnb St. Julian\'s — 3 Nächte (inkl. Gebühren)','~€89','~€355'],
-    ['Halloween-Party','Paceville Clubeintritt (31. Okt.) — meist günstiger','~€15','~€60'],
-    ['Kochkurs','Maltesische Küche — Fenek + Pastizzi + Wein','€65','€260'],
-    ['Bootsausflug','Blaue Lagune (31. Okt. tagsüber)','€35','€140'],
-    ['Stadtführung','Valletta Free Tour (Trinkgeld)','~€12','~€48'],
-    ['Essen (3 Tage)','Fisch, Pasta, Pastizzi, Hafenrestaurants','~€95','~€380'],
-    ['Getränke & Ausgehen','Paceville Clubs + Strandbar (3 Nächte)','~€110','~€440'],
-    ['Sonstiges','Taxi Flughafen, Bus, Souvenirs','~€25','~€100'],
-    ['🏆  GESAMTSCHÄTZUNG','Malta, 30. Okt. – 2. Nov. 2025','~€586','~€2.344'],
+    ['Hin- und Rückflug','Eurowings EW  DUS ↔ MXP (Direktflug)','~€170','~€680'],
+    ['Unterkunft','Airbnb Navigli — 3 Nächte (inkl. Gebühren)','~€115','~€460'],
+    ['Halloween Kneipentour','Bar Crawl Navigli / Darsena (31. Okt.)','€20','€80'],
+    ['Kochkurs','Pasta-Kochkurs Navigli — Risotto + Ossobuco','€70','€280'],
+    ['Stadtführung','SANDEMANs — Duomo (Trinkgeld)','~€12','~€48'],
+    ['Essen (3 Tage)','Trattoria, Aperitivo-Buffet, Bar-Frühstück','~€130','~€520'],
+    ['Getränke & Ausgehen','Navigli + Corso Como + Clubs (3 Nächte)','~€160','~€640'],
+    ['Sonstiges','Malpensa Express, Tram, Souvenirs','~€30','~€120'],
+    ['🏆  GESAMTSCHÄTZUNG','Mailand, 30. Okt. – 2. Nov. 2025','~€707','~€2.828'],
   ],
-  costNote:'💡 Günstigste Unterkunft dieser Auswahl!  Cisk-Bier ab €2,50.  Pastizzi (maltesisches Gebäck) für €0,50.  Baden im Mittelmeer noch möglich!  Blaue Lagune ist eines der schönsten Gewässer Europas.',
+  costNote:'💡 Kürzester Flug dieser Auswahl (1h 40m ab DUS)!  Aperitivo-Zeit (18–21 Uhr): Drink + gratis Buffet ~€10 — spart Abendessenkosten.  Cappuccino an der Bar stehend: €1,50.  Budgetrahmen: €600–850 p.P.',
 };
 
 // ── Slide 1: Titelfolie ───────────────────────────────────────────────────────
@@ -519,13 +356,13 @@ function slide1(pres) {
   s.addShape('rect',{x:2.0,y:3.55,w:9.33,h:0.6,fill:{color:C.bgCard,transparency:20},line:{color:C.orange,pt:1},rounding:0.05});
   s.addText('Bereits bereist:   ✓ Riga   ✓ Athen   ✓ Tirana   ✓ Belgrad',{x:2.0,y:3.55,w:9.33,h:0.6,align:'center',fontSize:15,fontFace:'Calibri',color:C.gray,valign:'middle'});
   s.addText('DIE ZIELE STEHEN FEST — ES GEHT LOS!',{x:0.5,y:4.35,w:12.33,h:0.65,align:'center',fontSize:26,fontFace:'Trebuchet MS',bold:true,color:C.coral});
-  const pills=[['🇵🇹 LISSABON',LIS_C],['🇲🇹 MALTA',MALT_C]];
+  const pills=[['🇵🇹 LISSABON',LIS_C],['🇮🇹 MAILAND',MIL_C]];
   pills.forEach(([label,col],i)=>{
     const px=2.17+i*4.5;
     s.addShape('rect',{x:px,y:5.15,w:4.2,h:0.75,fill:{color:C.bgDeep},line:{color:col,pt:2.5},rounding:0.08});
     s.addText(label,{x:px,y:5.15,w:4.2,h:0.75,align:'center',fontSize:24,fontFace:'Trebuchet MS',bold:true,color:C.white,valign:'middle'});
   });
-  s.addText('Flüge ab DUS · FMO · DTM  ·  Lissabon 17–22°C · Malta 22–24°C',{x:0,y:6.25,w:'100%',h:0.4,align:'center',fontSize:13,fontFace:'Calibri',color:C.dimGray,italic:true});
+  s.addText('Beide Ziele: Direktflug ab DUS  ·  Lissabon 17–22°C · Mailand 12–16°C',{x:0,y:6.25,w:'100%',h:0.4,align:'center',fontSize:13,fontFace:'Calibri',color:C.dimGray,italic:true});
   s.addShape('rect',{x:0,y:7.42,w:'100%',h:0.08,fill:{color:C.orange},line:{color:C.orange}});
 }
 
@@ -533,12 +370,12 @@ function slide1(pres) {
 function buildComparison(pres) {
   const s = pres.addSlide();
   s.background = { color: C.bg };
-  sectionHeader(s, '⚔️  DIREKTVERGLEICH — LISSABON vs. MALTA', C.orange);
+  sectionHeader(s, '⚔️  DIREKTVERGLEICH — LISSABON vs. MAILAND', C.orange);
 
   const catW=3.4, cityW=4.55;
   const cols=[
-    {label:'🇵🇹 LISSABON', color:LIS_C,  x:catW+0.35},
-    {label:'🇲🇹 MALTA',    color:MALT_C, x:catW+0.35+cityW+0.1},
+    {label:'🇵🇹 LISSABON', color:LIS_C, x:catW+0.35},
+    {label:'🇮🇹 MAILAND',  color:MIL_C, x:catW+0.35+cityW+0.1},
   ];
 
   cols.forEach(col=>{
@@ -547,17 +384,17 @@ function buildComparison(pres) {
   });
 
   const rows=[
-    ['💰 Kosten p.P.',      '~€735',                        '~€586'],
-    ['✈ Flugdauer',         '3h 10m  ab DUS',               '~3h 00m  ab FMO/DTM'],
-    ['🛫 Flughafen',        'DUS — Eurowings / TAP',        'FMO oder DTM — Ryanair direkt'],
-    ['🍺 Bierpreis',        '€2–3  (Super Bock / Sagres)',  '€2–3  (Cisk Lager, seit 1928)'],
-    ['🌡 Wetter Ende Okt.', '17–22°C  ☀',                  '22–24°C  ☀☀  (wärmer!)'],
-    ['🎃 Halloween',        '⭐⭐⭐⭐  Clubs bis 6 Uhr',     '⭐⭐⭐⭐  Paceville bis 4 Uhr'],
-    ['🏙 Viertel',          'Bairro Alto · Pink Street',    'Paceville · St. Julian\'s'],
-    ['🌊 Highlight',        'Fado · Atlantik-Charme',       'Blaue Lagune · Schwimmen!'],
-    ['🍳 Kochkurs',         '€110 p.P.',                    '€65 p.P.'],
-    ['🏠 Unterkunft p.P.',  '~€113–120',                    '~€84–89'],
-    ['💡 Stärke',           'Nightlife-Weltklasse',         'Wärme + Meer + Preis'],
+    ['💰 Kosten p.P.',      '~€735',                          '~€707'],
+    ['✈ Flugdauer',         '3h 10m  ab DUS',                 '1h 40m  ab DUS  ✈ schnellste!'],
+    ['🛫 Flughafen',        'DUS — Eurowings / TAP',          'DUS — Eurowings / ITA / Ryanair'],
+    ['🍺 Bierpreis',        '€2–3  (Super Bock / Sagres)',    '€5–7  (Nastro Azzurro)'],
+    ['🌡 Wetter Ende Okt.', '17–22°C  ☀',                    '12–16°C  🧥'],
+    ['🎃 Halloween',        '⭐⭐⭐⭐  Clubs bis 6 Uhr',       '⭐⭐⭐⭐  Corso Como bis 5 Uhr'],
+    ['🏙 Viertel',          'Bairro Alto · Pink Street',      'Navigli · Corso Como · Isola'],
+    ['🌟 Highlight',        'Fado · Atlantik-Charme',         'Aperitivo + gratis Buffet ab 18h'],
+    ['🍳 Kochkurs',         '€110 p.P.',                      '€70 p.P.'],
+    ['🏠 Unterkunft p.P.',  '~€113–120',                      '~€113–118'],
+    ['💡 Stärke',           'Nightlife-Weltklasse + Wärme',   'Kürzester Flug + Fashion + Pasta'],
   ];
 
   const rowH=0.5;
@@ -623,7 +460,7 @@ function buildHallOfFame(pres) {
   s.addText('TRIP #5 — DIE WAHL IST GEFALLEN',{x:nx+0.15,y:ny+1.46,w:nw-0.3,h:0.44,align:'center',fontSize:12,fontFace:'Trebuchet MS',bold:true,color:C.amber});
 
   const opts=[['🇵🇹  LISSABON',LIS_C,'Nightlife-Hauptstadt\ndes Atlantiks · 17–22°C'],
-              ['🇲🇹  MALTA',   MALT_C,'Wärmstes Ziel · Blaue\nLagune · 22–24°C']];
+              ['🇮🇹  MAILAND', MIL_C,'Kürzester Flug (1h40)\nNavigli · Aperitivo · Mode']];
   opts.forEach(([lbl,col,sub],oi)=>{
     const py = ny+2.02+oi*1.38;
     s.addShape('rect',{x:nx+0.2,y:py,w:nw-0.4,h:0.58,fill:{color:C.bgCard},line:{color:col,pt:2},rounding:0.06});
@@ -646,12 +483,12 @@ async function main() {
   const pres = new PptxGenJS();
   pres.layout = 'LAYOUT_WIDE';
   pres.author = 'Halloween-Trip 2025';
-  pres.title = 'Halloween-Trip 2025 – Lissabon vs Madrid vs Rom vs Malta';
+  pres.title = 'Halloween-Trip 2025 – Lissabon vs. Mailand';
 
   console.log('Erstelle Folien...');
   slide1(pres); console.log('  ✓ Folie 1: Titelfolie');
 
-  const cities=[LISSABON,MALTA];
+  const cities=[LISSABON,MAILAND];
   cities.forEach((cfg,ci)=>{
     const base=(ci*5)+2;
     buildOverview(pres,cfg);   console.log(`  ✓ Folie ${base}: ${cfg.name} Übersicht`);
