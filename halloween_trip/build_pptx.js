@@ -513,117 +513,126 @@ function slide1(pres) {
   s.addText('30. Okt. – 2. Nov.  ·  4 Jungs  ·  Europäische Hauptstadt  ·  Halloween-Nacht',{x:0.5,y:2.78,w:12.33,h:0.55,align:'center',fontSize:19,fontFace:'Trebuchet MS',color:C.offWhite});
   s.addShape('rect',{x:2.0,y:3.55,w:9.33,h:0.6,fill:{color:C.bgCard,transparency:20},line:{color:C.orange,pt:1},rounding:0.05});
   s.addText('Bereits bereist:   ✓ Riga   ✓ Athen   ✓ Tirana   ✓ Belgrad',{x:2.0,y:3.55,w:9.33,h:0.6,align:'center',fontSize:15,fontFace:'Calibri',color:C.gray,valign:'middle'});
-  s.addText('VIER NEUE ZIELE — JETZT ABSTIMMEN!',{x:0.5,y:4.35,w:12.33,h:0.65,align:'center',fontSize:26,fontFace:'Trebuchet MS',bold:true,color:C.coral});
-  // 4 destination pills
-  const pills=[['🇵🇹 LISSABON',LIS_C],['🇪🇸 MADRID',MAD_C],['🇮🇹 ROM',ROM_C],['🇲🇹 MALTA',MALT_C]];
+  s.addText('DIE ZIELE STEHEN FEST — ES GEHT LOS!',{x:0.5,y:4.35,w:12.33,h:0.65,align:'center',fontSize:26,fontFace:'Trebuchet MS',bold:true,color:C.coral});
+  const pills=[['🇵🇹 LISSABON',LIS_C],['🇲🇹 MALTA',MALT_C]];
   pills.forEach(([label,col],i)=>{
-    const px=0.5+i*3.2;
-    s.addShape('rect',{x:px,y:5.15,w:3.0,h:0.65,fill:{color:C.bgDeep},line:{color:col,pt:2},rounding:0.06});
-    s.addText(label,{x:px,y:5.15,w:3.0,h:0.65,align:'center',fontSize:18,fontFace:'Trebuchet MS',bold:true,color:C.white,valign:'middle'});
+    const px=2.17+i*4.5;
+    s.addShape('rect',{x:px,y:5.15,w:4.2,h:0.75,fill:{color:C.bgDeep},line:{color:col,pt:2.5},rounding:0.08});
+    s.addText(label,{x:px,y:5.15,w:4.2,h:0.75,align:'center',fontSize:24,fontFace:'Trebuchet MS',bold:true,color:C.white,valign:'middle'});
   });
-  s.addText('Flüge ab DUS · FMO · DTM  ·  Alle Ziele: Ende Oktober 16–24°C',{x:0,y:6.25,w:'100%',h:0.4,align:'center',fontSize:13,fontFace:'Calibri',color:C.dimGray,italic:true});
+  s.addText('Flüge ab DUS · FMO · DTM  ·  Lissabon 17–22°C · Malta 22–24°C',{x:0,y:6.25,w:'100%',h:0.4,align:'center',fontSize:13,fontFace:'Calibri',color:C.dimGray,italic:true});
   s.addShape('rect',{x:0,y:7.42,w:'100%',h:0.08,fill:{color:C.orange},line:{color:C.orange}});
 }
 
-// ── Slide 22: Direktvergleich ─────────────────────────────────────────────────
+// ── Slide 12: Direktvergleich (2 Städte) ─────────────────────────────────────
 function buildComparison(pres) {
   const s = pres.addSlide();
-  s.addImage({path:path.join(IMG,'comparison4_bg.png'),x:0,y:0,w:'100%',h:'100%'});
-  s.addShape('rect',{x:0,y:0,w:'100%',h:'100%',fill:{color:'000000',transparency:50},line:{color:'000000'}});
-  s.addShape('rect',{x:0,y:0,w:'100%',h:0.72,fill:{color:C.bgCard,transparency:15},line:{color:C.bgCard}});
-  s.addShape('rect',{x:0,y:0,w:'100%',h:0.08,fill:{color:C.orange},line:{color:C.orange}});
-  s.addText('DIREKTVERGLEICH — WO FAHREN WIR HIN?',{x:0.3,y:0.08,w:12.7,h:0.64,fontSize:22,fontFace:'Trebuchet MS',bold:true,color:C.white,valign:'middle'});
+  s.background = { color: C.bg };
+  sectionHeader(s, '⚔️  DIREKTVERGLEICH — LISSABON vs. MALTA', C.orange);
 
+  const catW=3.4, cityW=4.55;
   const cols=[
-    {label:'🇵🇹 LISSABON', color:LIS_C, x:2.8},
-    {label:'🇪🇸 MADRID',   color:MAD_C, x:5.4},
-    {label:'🇮🇹 ROM',      color:ROM_C, x:8.0},
-    {label:'🇲🇹 MALTA',   color:MALT_C,x:10.6},
+    {label:'🇵🇹 LISSABON', color:LIS_C,  x:catW+0.35},
+    {label:'🇲🇹 MALTA',    color:MALT_C, x:catW+0.35+cityW+0.1},
   ];
-  // Column headers
+
   cols.forEach(col=>{
-    s.addShape('rect',{x:col.x,y:0.82,w:2.45,h:0.52,fill:{color:C.bgDeep,transparency:10},line:{color:col.color,pt:1.5},rounding:0.04});
-    s.addText(col.label,{x:col.x,y:0.82,w:2.45,h:0.52,align:'center',fontSize:15,fontFace:'Trebuchet MS',bold:true,color:col.color,valign:'middle'});
+    s.addShape('rect',{x:col.x,y:0.85,w:cityW,h:0.56,fill:{color:C.bgDeep},line:{color:col.color,pt:2},rounding:0.05});
+    s.addText(col.label,{x:col.x,y:0.85,w:cityW,h:0.56,align:'center',fontSize:18,fontFace:'Trebuchet MS',bold:true,color:col.color,valign:'middle'});
   });
 
   const rows=[
-    ['💰 Kosten p.P.',       '~€735',                  '~€712',                 '~€597',                '~€631'],
-    ['✈ Flugdauer',          '3h 10m · DUS',           '2h 30m · DUS',          '2h 15m · DTM',         '~3h · DUS'],
-    ['🛫 Flughafen',         'DUS (Eurowings/TAP)',     'DUS (Iberia)',           'DTM (Ryanair)',         'DUS (Eurowings)'],
-    ['🍺 Bierpreis (Ø)',     '€2–3 / Pint',            '€2–4 / Caña',           '€4–6 / Flasche',       '€2–3 (Cisk)'],
-    ['🌡 Wetter Okt.',       '17–22°C ☀',              '18–20°C ☀',             '16–19°C',              '22–24°C ☀☀'],
-    ['🎃 Halloween',         '⭐⭐⭐⭐ Fr.+Clubs',      '⭐⭐⭐⭐⭐ Fr.+Feiert.',  '⭐⭐⭐⭐ Testaccio',     '⭐⭐⭐⭐ Paceville'],
-    ['🏙 Besonderheit',      'Pink St.·Fado·Atlantik', 'Malasaña·Tapas·Vermouth','Kolosseum·Pasta·Aperol','Blaue Lagune·Baden'],
-    ['🎭 Clubs bis',         '6 Uhr',                  '7 Uhr',                 '5 Uhr',                '4 Uhr'],
-    ['🍴 Essen',             'Petiscos €15–25',        'Tapas €15–20',          'Pizza/Pasta €15–20',   'Fisch €12–20'],
-    ['🍳 Kochkurs',          '€110 p.P.',              '€85 p.P.',              '€65 p.P.',             '€65 p.P.'],
-    ['💡 Unser Tipp',        'Atlantik-Charme+Fado',   'Fr.+Feiertag = Top!',   'Günstig ab DTM!',      'Wärmstes+Meer!'],
+    ['💰 Kosten p.P.',      '~€735',                        '~€631'],
+    ['✈ Flugdauer',         '3h 10m  ab DUS',               '~3h 00m  ab DUS'],
+    ['🛫 Flughafen',        'DUS — Eurowings / TAP',        'DUS — Eurowings / Ryanair'],
+    ['🍺 Bierpreis',        '€2–3  (Super Bock / Sagres)',  '€2–3  (Cisk Lager, seit 1928)'],
+    ['🌡 Wetter Ende Okt.', '17–22°C  ☀',                  '22–24°C  ☀☀  (wärmer!)'],
+    ['🎃 Halloween',        '⭐⭐⭐⭐  Clubs bis 6 Uhr',     '⭐⭐⭐⭐  Paceville bis 4 Uhr'],
+    ['🏙 Viertel',          'Bairro Alto · Pink Street',    'Paceville · St. Julian\'s'],
+    ['🌊 Highlight',        'Fado · Atlantik-Charme',       'Blaue Lagune · Schwimmen!'],
+    ['🍳 Kochkurs',         '€110 p.P.',                    '€65 p.P.'],
+    ['🏠 Unterkunft p.P.',  '~€113–120',                    '~€84–89'],
+    ['💡 Stärke',           'Nightlife-Weltklasse',         'Wärme + Meer + Preis'],
   ];
 
+  const rowH=0.5;
   rows.forEach((row,i)=>{
-    const ry=1.44+i*0.54;
+    const ry=1.45+i*rowH;
     const isLast=i===rows.length-1;
     const rowFill=isLast?C.bgDeep:(i%2===0?C.bgCard:C.bg);
-    const tr=isLast?0:25;
 
-    // Category
-    s.addShape('rect',{x:0.25,y:ry,w:2.45,h:0.5,fill:{color:rowFill,transparency:tr},line:{color:C.bgDeep}});
-    s.addText(row[0],{x:0.3,y:ry,w:2.4,h:0.5,fontSize:isLast?11:9.5,fontFace:'Calibri',bold:isLast,color:isLast?C.amber:C.gray,valign:'middle'});
+    s.addShape('rect',{x:0.3,y:ry,w:catW,h:rowH,fill:{color:rowFill},line:{color:C.bgDeep}});
+    s.addText(row[0],{x:0.4,y:ry,w:catW-0.15,h:rowH,fontSize:isLast?11:10,fontFace:'Calibri',bold:isLast,color:isLast?C.amber:C.gray,valign:'middle'});
 
     cols.forEach((col,ci)=>{
-      s.addShape('rect',{x:col.x,y:ry,w:2.45,h:0.5,fill:{color:rowFill,transparency:tr},line:{color:isLast?col.color:C.bgDeep,pt:isLast?1.5:0.5}});
-      s.addText(row[ci+1],{x:col.x+0.05,y:ry,w:2.35,h:0.5,align:'center',fontSize:isLast?10.5:9,fontFace:isLast?'Trebuchet MS':'Calibri',bold:isLast,color:isLast?col.color:C.offWhite,valign:'middle'});
+      s.addShape('rect',{x:col.x,y:ry,w:cityW,h:rowH,fill:{color:rowFill},line:{color:isLast?col.color:C.bgDeep,pt:isLast?1.5:0.5}});
+      s.addText(row[ci+1],{x:col.x+0.1,y:ry,w:cityW-0.2,h:rowH,align:'center',fontSize:isLast?11:10,fontFace:isLast?'Trebuchet MS':'Calibri',bold:isLast,color:isLast?col.color:C.offWhite,valign:'middle'});
     });
   });
-  s.addShape('rect',{x:0,y:7.42,w:'100%',h:0.08,fill:{color:C.orange},line:{color:C.orange}});
+  bottomBar(s);
 }
 
-// ── Slide 23: Männerreise-Statistiken ────────────────────────────────────────
-function buildMaennerStats(pres) {
+// ── Slide 13: Hall of Fame ────────────────────────────────────────────────────
+function buildHallOfFame(pres) {
   const s = pres.addSlide();
   s.background = { color: C.bg };
-  s.addShape('rect',{x:0,y:0,w:'100%',h:0.08,fill:{color:C.orange},line:{color:C.orange}});
-  s.addShape('rect',{x:0,y:0.08,w:'100%',h:0.72,fill:{color:C.bgCard},line:{color:C.bgCard}});
-  s.addText('📊  WISSENSCHAFT DER MÄNNERREISE — BELEGBARE FAKTEN',{x:0.4,y:0.08,w:12.5,h:0.72,fontSize:22,fontFace:'Trebuchet MS',bold:true,color:C.white,valign:'middle'});
-  s.addShape('rect',{x:0,y:0.8,w:'100%',h:0.03,fill:{color:C.orange},line:{color:C.orange}});
+  sectionHeader(s, '🏆  TRIP HALL OF FAME — DIE LEGENDE WÄCHST', C.orange);
 
-  // Big stat boxes: 3 per row, 3 rows
-  const stats = [
-    { icon:'🍺', val:'+340%',   label:'Bierkonsum vs. Zuhause',       sub:'gemessen in Litern, nicht Reue',   color:C.orange },
-    { icon:'⌛', val:'4h 12m',  label:'Schlafdauer pro Nacht',         sub:'geplant waren: 8h',                color:C.amber  },
-    { icon:'📱', val:'-83%',    label:'Nachrichten nach Hause',        sub:'pro Tag nach Ankunft',             color:C.coral  },
-    { icon:'🔁', val:'7×',      label:'"Nur noch eine Bar" pro Nacht', sub:'davon eingehalten: 0×',            color:LIS_C   },
-    { icon:'🔑', val:'1,4',     label:'Verlorene Schlüssel pro Trip',  sub:'einer davon taucht nie wieder auf',color:MALT_C  },
-    { icon:'💸', val:'+47%',    label:'Budget-Überschreitung',         sub:'Ø über alle Männertouren weltweit',color:MAD_C   },
-    { icon:'📸', val:'847 / 3', label:'Fotos gemacht vs. geteilt',     sub:'die anderen 844 bleiben unter uns',color:ROM_C   },
-    { icon:'🕙', val:'22:47',   label:'Tatsächliche Abfahrtszeit',     sub:'geplant: 21:00 Uhr',              color:C.orange },
-    { icon:'🌅', val:'04:35',   label:'Heimkehrzeit (versprochen: 01)', sub:'Frühstück direkt inbegriffen',    color:C.amber  },
+  // Left 2×2 grid: past trips
+  const past = [
+    { year:'2021', city:'Riga',    flag:'🇱🇻', color:'E8C85A',
+      lines:['🍺 Bier: €0,80 — ewiger Rekord', '🌃 Clubs bis 7 Uhr morgens', '🏆 Günstigster Trip aller Zeiten'] },
+    { year:'2022', city:'Athen',   flag:'🇬🇷', color:'5A8FE8',
+      lines:['🌅 Dachbar mit Akropolis-Blick', '🐟 Ouzo-Entscheidung: bereut', '🏆 Wärmster Trip bisher'] },
+    { year:'2023', city:'Tirana',  flag:'🇦🇱', color:'E85A5A',
+      lines:['🥘 Bestes Essen: unerwartet gut', '🎵 Barkeeper wurde Freund', '🏆 Geheimtipp des Jahres'] },
+    { year:'2024', city:'Belgrad', flag:'🇷🇸', color:'A55AE8',
+      lines:['⛵ Splavovi-Clubs am Fluss', '🌄 Heimkehr beim Sonnenaufgang', '🏆 Wildeste Nacht aller Zeiten'] },
   ];
 
-  const colW = 4.1, rowH = 1.78;
-  const startX = 0.25, startY = 0.97;
+  const cW=3.6, cH=2.82, gX=0.2, gY=0.18;
+  past.forEach((t, i) => {
+    const col = i % 2, row = Math.floor(i / 2);
+    const x = 0.25 + col*(cW+gX);
+    const y = 1.02 + row*(cH+gY);
 
-  stats.forEach((st, i) => {
-    const col = i % 3, row = Math.floor(i / 3);
-    const x = startX + col * (colW + 0.1);
-    const y = startY + row * (rowH + 0.08);
-
-    s.addShape('rect',{x,y,w:colW,h:rowH,fill:{color:C.bgCard},line:{color:st.color,pt:1.5},rounding:0.05});
-    s.addShape('rect',{x,y,w:colW,h:0.44,fill:{color:C.bgDeep},line:{color:C.bgDeep},rounding:0.05});
-
-    // Emoji icon
-    s.addText(st.icon, {x, y:y+0.02, w:colW, h:0.44, align:'center', fontSize:20, fontFace:'Segoe UI Emoji', valign:'middle'});
-    // Big number
-    s.addText(st.val, {x, y:y+0.46, w:colW, h:0.68, align:'center', fontSize:32, fontFace:'Trebuchet MS', bold:true, color:st.color, valign:'middle'});
-    // Label
-    s.addText(st.label, {x:x+0.08, y:y+1.16, w:colW-0.16, h:0.3, align:'center', fontSize:10, fontFace:'Trebuchet MS', bold:true, color:C.offWhite, valign:'middle'});
-    // Subtext
-    s.addText(st.sub, {x:x+0.08, y:y+1.46, w:colW-0.16, h:0.26, align:'center', fontSize:8.5, fontFace:'Calibri', color:C.dimGray, italic:true, valign:'top', wrap:true});
+    s.addShape('rect',{x,y,w:cW,h:cH,fill:{color:C.bgCard},line:{color:t.color,pt:1.5},rounding:0.06});
+    s.addShape('rect',{x,y,w:cW,h:0.46,fill:{color:C.bgDeep},line:{color:C.bgDeep},rounding:0.06});
+    s.addText(`${t.flag}  ${t.year}`,{x,y,w:cW,h:0.46,align:'center',fontSize:17,fontFace:'Trebuchet MS',bold:true,color:t.color,valign:'middle'});
+    s.addText(t.city.toUpperCase(),{x,y:y+0.5,w:cW,h:0.4,align:'center',fontSize:15,fontFace:'Trebuchet MS',bold:true,color:C.white});
+    s.addShape('rect',{x:x+0.15,y:y+0.96,w:cW-0.3,h:0.025,fill:{color:t.color},line:{color:t.color}});
+    t.lines.forEach((line, li) => {
+      const isLast = li === t.lines.length - 1;
+      s.addText(line,{x:x+0.1,y:y+1.0+li*0.56,w:cW-0.2,h:0.52,fontSize:9.5,fontFace:'Calibri',
+        color:isLast?t.color:C.offWhite,bold:isLast,wrap:true,valign:'top'});
+    });
   });
 
-  s.addShape('rect',{x:0,y:7.3,w:'100%',h:0.12,fill:{color:C.bgCard},line:{color:C.bgDeep}});
-  s.addText('Quelle: Erfahrungswerte, n = unzählige Männerreisen seit 1987  ·  Statistiken ohne Gewähr, aber mit vollem Überzeugungsgrad  ·  🏆 In Memoriam: Budgets, die nie überlebt haben',
-    {x:0.3,y:7.3,w:12.7,h:0.12,fontSize:7.5,fontFace:'Calibri',color:C.dimGray,italic:true,valign:'middle'});
+  // Right side: 2025 Next Stop (x=7.9, fits within 13.333")
+  const nx=7.9, nw=5.15, ny=1.0, nh=6.28;
+  s.addShape('rect',{x:nx,y:ny,w:nw,h:nh,fill:{color:C.bgDeep},line:{color:C.orange,pt:2.5},rounding:0.08});
+  s.addShape('rect',{x:nx,y:ny,w:nw,h:0.6,fill:{color:C.orange},line:{color:C.orange},rounding:0.08});
+  s.addText('2025  ·  NEXT STOP',{x:nx,y:ny,w:nw,h:0.6,align:'center',fontSize:16,fontFace:'Trebuchet MS',bold:true,color:C.bg,valign:'middle'});
+
+  s.addText('🎃',{x:nx,y:ny+0.68,w:nw,h:0.7,align:'center',fontSize:44,fontFace:'Segoe UI Emoji'});
+  s.addText('TRIP #5 — DIE WAHL IST GEFALLEN',{x:nx+0.15,y:ny+1.46,w:nw-0.3,h:0.44,align:'center',fontSize:12,fontFace:'Trebuchet MS',bold:true,color:C.amber});
+
+  const opts=[['🇵🇹  LISSABON',LIS_C,'Nightlife-Hauptstadt\ndes Atlantiks · 17–22°C'],
+              ['🇲🇹  MALTA',   MALT_C,'Wärmstes Ziel · Blaue\nLagune · 22–24°C']];
+  opts.forEach(([lbl,col,sub],oi)=>{
+    const py = ny+2.02+oi*1.38;
+    s.addShape('rect',{x:nx+0.2,y:py,w:nw-0.4,h:0.58,fill:{color:C.bgCard},line:{color:col,pt:2},rounding:0.06});
+    s.addText(lbl,{x:nx+0.2,y:py,w:nw-0.4,h:0.58,align:'center',fontSize:18,fontFace:'Trebuchet MS',bold:true,color:col,valign:'middle'});
+    s.addText(sub,{x:nx+0.2,y:py+0.62,w:nw-0.4,h:0.62,align:'center',fontSize:9.5,fontFace:'Calibri',color:C.gray,wrap:true,valign:'top'});
+  });
+
+  s.addShape('rect',{x:nx+0.15,y:ny+4.94,w:nw-0.3,h:0.025,fill:{color:C.orange},line:{color:C.orange}});
+  const facts=['🎃  31. Oktober 2025 = FREITAG','Jeder Trip unvergessen — Trip 5 wird der Beste'];
+  facts.forEach((f,fi)=>{
+    s.addText(f,{x:nx+0.1,y:ny+5.0+fi*0.52,w:nw-0.2,h:0.48,align:'center',fontSize:9.5,fontFace:'Calibri',
+      color:fi===0?C.orange:C.gray,bold:fi===0,italic:fi===1,wrap:true});
+  });
+
   bottomBar(s);
 }
 
@@ -637,7 +646,7 @@ async function main() {
   console.log('Erstelle Folien...');
   slide1(pres); console.log('  ✓ Folie 1: Titelfolie');
 
-  const cities=[LISSABON,MADRID,ROM,MALTA];
+  const cities=[LISSABON,MALTA];
   cities.forEach((cfg,ci)=>{
     const base=(ci*5)+2;
     buildOverview(pres,cfg);   console.log(`  ✓ Folie ${base}: ${cfg.name} Übersicht`);
@@ -647,8 +656,8 @@ async function main() {
     buildCosts(pres,cfg);      console.log(`  ✓ Folie ${base+4}: ${cfg.name} Kosten`);
   });
 
-  buildComparison(pres);    console.log('  ✓ Folie 22: Direktvergleich');
-  buildMaennerStats(pres);  console.log('  ✓ Folie 23: Männerreise-Statistiken');
+  buildComparison(pres);   console.log('  ✓ Folie 12: Direktvergleich');
+  buildHallOfFame(pres);   console.log('  ✓ Folie 13: Hall of Fame');
 
   await pres.writeFile({ fileName: OUT });
   console.log(`\n✅ Gespeichert: ${OUT}`);
