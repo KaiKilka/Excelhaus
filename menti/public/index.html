@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Halloween Trip 2025 – Abstimmung</title>
-<script src="/socket.io/socket.io.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
@@ -15,7 +16,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px 16px 40px;
+    padding: 20px 16px 48px;
   }
   .logo {
     font-size: 2rem;
@@ -28,13 +29,11 @@
   }
   .subtitle { font-size: 0.85rem; color: #888; margin-bottom: 24px; }
 
-  /* Progress bar */
   .progress-wrap { width: 100%; max-width: 480px; margin-bottom: 20px; }
   .progress-label { font-size: 0.78rem; color: #aaa; margin-bottom: 6px; text-align: right; }
   .progress-bar { height: 6px; background: #2a2a3a; border-radius: 3px; overflow: hidden; }
   .progress-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, #ff8c00, #8c52e8); transition: width 0.4s; }
 
-  /* Cards */
   .card {
     background: #181828;
     border-radius: 20px;
@@ -50,7 +49,6 @@
   .question { font-size: 1.35rem; font-weight: 700; margin-bottom: 6px; line-height: 1.3; }
   .desc { font-size: 0.88rem; color: #aaa; margin-bottom: 24px; }
 
-  /* Gender buttons */
   .gender-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .gender-btn {
     border: 2px solid #333;
@@ -62,31 +60,15 @@
     transition: all 0.2s;
     user-select: none;
   }
-  .gender-btn:active, .gender-btn.selected { border-color: #ff8c00; background: rgba(255,140,0,0.12); }
+  .gender-btn.selected { border-color: #ff8c00; background: rgba(255,140,0,0.12); }
   .gender-btn .icon { font-size: 2.2rem; display: block; margin-bottom: 6px; }
   .gender-btn .name { font-size: 1rem; font-weight: 600; }
 
-  /* Rating rows */
-  .city-row {
-    margin-bottom: 22px;
-  }
+  .city-row { margin-bottom: 22px; }
   .city-row:last-child { margin-bottom: 0; }
-  .city-label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-  .city-dot {
-    width: 12px; height: 12px; border-radius: 50%;
-    flex-shrink: 0;
-  }
-  .stars {
-    display: flex;
-    gap: 8px;
-  }
+  .city-label { display: flex; align-items: center; gap: 8px; font-size: 1rem; font-weight: 600; margin-bottom: 10px; }
+  .city-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+  .stars { display: flex; gap: 8px; }
   .star {
     width: 44px; height: 44px;
     border-radius: 50%;
@@ -103,36 +85,35 @@
   .star.active.lis { border-color: #ff8c00; background: rgba(255,140,0,0.2); }
   .star.active.sof { border-color: #8c52e8; background: rgba(140,82,232,0.2); }
 
-  /* Divider */
   .divider { border: none; border-top: 1px solid #2a2a3a; margin: 20px 0; }
 
-  /* Navigation */
   .nav { display: flex; gap: 12px; margin-top: 28px; width: 100%; max-width: 480px; }
-  .btn {
-    flex: 1;
-    padding: 14px 20px;
-    border-radius: 12px;
-    border: none;
-    font-size: 1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
+  .btn { flex: 1; padding: 14px 20px; border-radius: 12px; border: none; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
   .btn-back { background: #22223a; color: #aaa; }
   .btn-next { background: linear-gradient(90deg, #ff8c00, #ff6000); color: #fff; }
-  .btn-next.sof { background: linear-gradient(90deg, #8c52e8, #5a2ea0); }
   .btn-next:disabled { opacity: 0.35; cursor: not-allowed; }
 
-  /* Done screen */
   .done-icon { font-size: 4rem; margin-bottom: 16px; text-align: center; }
   .done-title { font-size: 1.5rem; font-weight: 700; text-align: center; margin-bottom: 8px; }
   .done-text { color: #aaa; text-align: center; font-size: 0.9rem; line-height: 1.6; }
 
-  /* Step dots */
   .dots { display: flex; gap: 6px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; }
   .dot { width: 8px; height: 8px; border-radius: 50%; background: #333; transition: background 0.2s; }
   .dot.done { background: #ff8c00; }
   .dot.current { background: #fff; width: 20px; border-radius: 4px; }
+
+  .error-banner {
+    background: #2a1010;
+    border: 1px solid #c0392b;
+    border-radius: 12px;
+    padding: 16px 20px;
+    width: 100%;
+    max-width: 480px;
+    margin-bottom: 20px;
+    font-size: 0.88rem;
+    color: #e74c3c;
+    line-height: 1.5;
+  }
 </style>
 </head>
 <body>
@@ -145,37 +126,66 @@
   <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
 </div>
 
-<div class="card" id="card"></div>
+<div id="errorBanner" style="display:none" class="error-banner"></div>
+<div class="card" id="card"><div style="text-align:center;padding:20px;color:#888">Verbinde...</div></div>
 <div class="nav" id="nav"></div>
 
 <script>
-const socket = io();
-let criteria = [];
-let currentStep = 0; // 0 = gender, 1-8 = criteria
-let gender = null;
-let ratings = {}; // criterionId -> { lissabon: 0, sofia: 0 }
-let submitted = false;
+const CRITERIA = [
+  { id: 'wetter',    label: '🌡 Wetter',               desc: 'Wie wichtig ist dir das Wetter Ende Oktober?' },
+  { id: 'flug',      label: '✈ Flug & Erreichbarkeit', desc: 'Flugdauer und Direktflug ab DUS?' },
+  { id: 'halloween', label: '🎃 Halloween-Atmosphäre',  desc: 'Wie stark ist die Halloween-Stimmung?' },
+  { id: 'nightlife', label: '🍺 Nightlife & Bars',      desc: 'Clubbing, Bars, Ausgehen bis in die Nacht?' },
+  { id: 'preis',     label: '💰 Preis-Leistung',        desc: 'Budget: Flug + Unterkunft + Essen + Bier?' },
+  { id: 'sehensw',   label: '🏙 Sehenswürdigkeiten',    desc: 'Kultur, Architektur und Stadtflair?' },
+  { id: 'essen',     label: '🍳 Essen & Trinken',       desc: 'Lokale Küche, Restaurants, Streetfood?' },
+  { id: 'unterkunft',label: '🏠 Unterkunft',            desc: 'Airbnb-Verfügbarkeit, Lage und Preis?' },
+];
 
-socket.on('init', (data) => {
-  criteria = data.criteria;
-  criteria.forEach(c => { ratings[c.id] = { lissabon: 0, sofia: 0 }; });
-  buildDots();
-  render();
-});
+// Supabase setup
+let db;
+try {
+  if (typeof SUPABASE_URL === 'undefined' || SUPABASE_URL === 'YOUR_SUPABASE_URL') throw new Error('config');
+  db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+} catch(e) {
+  document.getElementById('errorBanner').style.display = 'block';
+  document.getElementById('errorBanner').innerHTML =
+    '<strong>⚠️ Supabase nicht konfiguriert</strong><br>Bitte <code>config.js</code> mit deinen Supabase-Zugangsdaten befüllen.';
+}
 
+// Session & state
+let sessionId = localStorage.getItem('menti_session');
+if (!sessionId) { sessionId = crypto.randomUUID(); localStorage.setItem('menti_session', sessionId); }
+
+let gender = localStorage.getItem('menti_gender') || null;
+let ratings = JSON.parse(localStorage.getItem('menti_ratings') || '{}');
+let currentStep = parseInt(localStorage.getItem('menti_step') || '0', 10);
+
+CRITERIA.forEach(c => { if (!ratings[c.id]) ratings[c.id] = { lissabon: 0, sofia: 0 }; });
+
+async function syncToSupabase() {
+  if (!db) return;
+  await db.from('votes').upsert({ session_id: sessionId, gender, ratings, updated_at: new Date().toISOString() });
+}
+
+// Init: upsert row so this session is counted
+if (db) syncToSupabase();
+
+// Render
 function buildDots() {
   const d = document.getElementById('dots');
   d.innerHTML = '';
-  for (let i = 0; i <= criteria.length; i++) {
+  for (let i = 0; i <= CRITERIA.length; i++) {
     const el = document.createElement('div');
     el.className = 'dot';
     el.id = 'dot-' + i;
     d.appendChild(el);
   }
 }
+buildDots();
 
 function updateDots() {
-  for (let i = 0; i <= criteria.length; i++) {
+  for (let i = 0; i <= CRITERIA.length; i++) {
     const el = document.getElementById('dot-' + i);
     if (!el) continue;
     el.className = 'dot' + (i < currentStep ? ' done' : i === currentStep ? ' current' : '');
@@ -183,7 +193,7 @@ function updateDots() {
 }
 
 function updateProgress() {
-  const total = 1 + criteria.length;
+  const total = 1 + CRITERIA.length;
   const pct = Math.round((currentStep / total) * 100);
   document.getElementById('progressFill').style.width = pct + '%';
   document.getElementById('progressLabel').textContent = `Schritt ${currentStep + 1} von ${total}`;
@@ -193,13 +203,13 @@ function render() {
   updateDots();
   updateProgress();
   if (currentStep === 0) renderGender();
-  else if (currentStep <= criteria.length) renderCriterion(currentStep - 1);
+  else if (currentStep <= CRITERIA.length) renderCriterion(currentStep - 1);
   else renderDone();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function renderGender() {
-  const card = document.getElementById('card');
-  card.innerHTML = `
+  document.getElementById('card').innerHTML = `
     <div class="step-label">Schritt 1 — Pflichtangabe</div>
     <div class="question">Wie bist du?</div>
     <div class="desc">Damit wir die Abstimmung nach Geschlecht auswerten können.</div>
@@ -212,47 +222,45 @@ function renderGender() {
       </div>
     </div>
   `;
-  const nav = document.getElementById('nav');
-  nav.innerHTML = `<button class="btn btn-next" id="nextBtn" onclick="nextStep()" ${!gender?'disabled':''}>Weiter →</button>`;
+  document.getElementById('nav').innerHTML =
+    `<button class="btn btn-next" id="nextBtn" onclick="nextStep()" ${!gender?'disabled':''}>Weiter →</button>`;
 }
 
 function selectGender(g) {
   gender = g;
-  socket.emit('setGender', g);
+  localStorage.setItem('menti_gender', g);
+  syncToSupabase();
   document.querySelectorAll('.gender-btn').forEach(el => el.classList.remove('selected'));
   document.getElementById(g === 'maennlich' ? 'btn-m' : 'btn-f').classList.add('selected');
   document.getElementById('nextBtn').disabled = false;
 }
 
 function renderCriterion(idx) {
-  const c = criteria[idx];
+  const c = CRITERIA[idx];
   const r = ratings[c.id];
-  const card = document.getElementById('card');
-  card.innerHTML = `
-    <div class="step-label">Kriterium ${idx + 1} von ${criteria.length}</div>
+  document.getElementById('card').innerHTML = `
+    <div class="step-label">Kriterium ${idx + 1} von ${CRITERIA.length}</div>
     <div class="question">${c.label}</div>
     <div class="desc">${c.desc}</div>
     <hr class="divider">
     <div class="city-row">
       <div class="city-label"><span class="city-dot" style="background:#ff8c00"></span>🇵🇹 Lissabon</div>
       <div class="stars" id="stars-lis">
-        ${[1,2,3,4,5].map(n => `<div class="star lis ${r.lissabon >= n ? 'active' : ''}" data-v="${n}" data-city="lissabon" onclick="rateStar('${c.id}','lissabon',${n})">${r.lissabon >= n ? '★' : '☆'}</div>`).join('')}
+        ${[1,2,3,4,5].map(n=>`<div class="star lis ${r.lissabon>=n?'active':''}" onclick="rateStar('${c.id}','lissabon',${n})">${r.lissabon>=n?'★':'☆'}</div>`).join('')}
       </div>
     </div>
     <div class="city-row">
       <div class="city-label"><span class="city-dot" style="background:#8c52e8"></span>🇧🇬 Sofia</div>
       <div class="stars" id="stars-sof">
-        ${[1,2,3,4,5].map(n => `<div class="star sof ${r.sofia >= n ? 'active' : ''}" data-v="${n}" data-city="sofia" onclick="rateStar('${c.id}','sofia',${n})">${r.sofia >= n ? '★' : '☆'}</div>`).join('')}
+        ${[1,2,3,4,5].map(n=>`<div class="star sof ${r.sofia>=n?'active':''}" onclick="rateStar('${c.id}','sofia',${n})">${r.sofia>=n?'★':'☆'}</div>`).join('')}
       </div>
     </div>
   `;
-  const nav = document.getElementById('nav');
-  const isFinal = idx === criteria.length - 1;
   const bothRated = r.lissabon > 0 && r.sofia > 0;
-  const isSof = false;
-  nav.innerHTML = `
+  const isFinal = idx === CRITERIA.length - 1;
+  document.getElementById('nav').innerHTML = `
     <button class="btn btn-back" onclick="prevStep()">← Zurück</button>
-    <button class="btn btn-next ${isSof?'sof':''}" id="nextBtn" onclick="nextStep()" ${!bothRated?'disabled':''}>
+    <button class="btn btn-next" id="nextBtn" onclick="nextStep()" ${!bothRated?'disabled':''}>
       ${isFinal ? '✅ Abstimmen' : 'Weiter →'}
     </button>
   `;
@@ -260,24 +268,24 @@ function renderCriterion(idx) {
 
 function rateStar(criterionId, city, value) {
   ratings[criterionId][city] = value;
-  socket.emit('setRating', { criterionId, city, value });
+  localStorage.setItem('menti_ratings', JSON.stringify(ratings));
+  syncToSupabase();
   const cls = city === 'lissabon' ? 'lis' : 'sof';
   document.querySelectorAll(`.star.${cls}`).forEach(el => {
-    const v = parseInt(el.dataset.v, 10);
-    el.classList.toggle('active', v <= value);
-    el.textContent = v <= value ? '★' : '☆';
+    const v = parseInt(el.textContent === '★' ? el.dataset?.v || '0' : '0', 10);
   });
-  const c = criteria[currentStep - 1];
-  const r = ratings[c.id];
+  // Re-render stars
+  const containerId = city === 'lissabon' ? 'stars-lis' : 'stars-sof';
+  document.getElementById(containerId).innerHTML =
+    [1,2,3,4,5].map(n=>`<div class="star ${cls} ${ratings[criterionId][city]>=n?'active':''}" onclick="rateStar('${criterionId}','${city}',${n})">${ratings[criterionId][city]>=n?'★':'☆'}</div>`).join('');
+  const r = ratings[criterionId];
   const bothRated = r.lissabon > 0 && r.sofia > 0;
   const nextBtn = document.getElementById('nextBtn');
   if (nextBtn) nextBtn.disabled = !bothRated;
 }
 
 function renderDone() {
-  submitted = true;
-  const card = document.getElementById('card');
-  card.innerHTML = `
+  document.getElementById('card').innerHTML = `
     <div class="done-icon">🎉</div>
     <div class="done-title">Danke für deine Stimme!</div>
     <div class="done-text">
@@ -288,18 +296,20 @@ function renderDone() {
   `;
   document.getElementById('nav').innerHTML = '';
   document.getElementById('dots').style.display = 'none';
-  document.getElementById('progressLabel').textContent = 'Fertig!';
+  document.getElementById('progressLabel').textContent = 'Fertig! ✅';
   document.getElementById('progressFill').style.width = '100%';
 }
 
 function nextStep() {
   currentStep++;
+  localStorage.setItem('menti_step', currentStep);
   render();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function prevStep() {
-  if (currentStep > 0) { currentStep--; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  if (currentStep > 0) { currentStep--; localStorage.setItem('menti_step', currentStep); render(); }
 }
+
+render();
 </script>
 </body>
 </html>
