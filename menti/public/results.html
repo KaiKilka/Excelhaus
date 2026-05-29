@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halloween Trip 2025 – Live-Ergebnisse</title>
+<script src="/socket.io/socket.io.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #0d0d1a;
+    color: #fff;
+    min-height: 100vh;
+    padding: 24px 20px 48px;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .logo {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #ff8c00, #8c52e8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 4px;
+  }
+  .tagline { color: #888; font-size: 0.9rem; }
+
+  /* Participant counter */
+  .counter-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .counter-chip {
+    background: #181828;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    border: 2px solid #2a2a3a;
+  }
+  .counter-chip span { color: #ff8c00; }
+  .counter-chip.m span { color: #4fc3f7; }
+  .counter-chip.f span { color: #f48fb1; }
+
+  /* Winner banner */
+  .winner-banner {
+    background: linear-gradient(135deg, #1a1a2e, #181828);
+    border-radius: 20px;
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 28px;
+    border: 2px solid transparent;
+    transition: border-color 0.4s;
+  }
+  .winner-banner.lis { border-color: #ff8c00; }
+  .winner-banner.sof { border-color: #8c52e8; }
+  .winner-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #888; margin-bottom: 8px; }
+  .winner-name { font-size: 2.2rem; font-weight: 800; margin-bottom: 4px; }
+  .winner-name.lis { color: #ff8c00; }
+  .winner-name.sof { color: #8c52e8; }
+  .winner-score { font-size: 1rem; color: #aaa; }
+  .scores-row { display: flex; justify-content: center; gap: 24px; margin-top: 16px; }
+  .score-pill {
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+  .score-pill.lis { background: rgba(255,140,0,0.15); color: #ff8c00; border: 1px solid #ff8c00; }
+  .score-pill.sof { background: rgba(140,82,232,0.15); color: #8c52e8; border: 1px solid #8c52e8; }
+
+  /* Gender breakdown winners */
+  .gender-winners {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .gw-card {
+    background: #181828;
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+    border: 1px solid #2a2a3a;
+  }
+  .gw-label { font-size: 0.75rem; color: #888; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1px; }
+  .gw-gender { font-size: 1.4rem; margin-bottom: 4px; }
+  .gw-winner { font-size: 1rem; font-weight: 700; }
+  .gw-winner.lis { color: #ff8c00; }
+  .gw-winner.sof { color: #8c52e8; }
+  .gw-score { font-size: 0.8rem; color: #888; }
+
+  /* Section title */
+  .section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #2a2a3a;
+  }
+
+  /* Criterion bars */
+  .criteria-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .criterion-card {
+    background: #181828;
+    border-radius: 16px;
+    padding: 18px 20px;
+    border: 1px solid #2a2a3a;
+  }
+  .criterion-name { font-size: 1rem; font-weight: 600; margin-bottom: 14px; }
+  .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .bar-row:last-child { margin-bottom: 0; }
+  .bar-city { width: 110px; flex-shrink: 0; font-size: 0.83rem; color: #ccc; }
+  .bar-wrap { flex: 1; height: 22px; background: #22223a; border-radius: 6px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 6px; transition: width 0.6s cubic-bezier(.4,0,.2,1); min-width: 2px; }
+  .bar-fill.lis { background: linear-gradient(90deg, #ff8c00, #ff6000); }
+  .bar-fill.sof { background: linear-gradient(90deg, #8c52e8, #5a2ea0); }
+  .bar-val { width: 30px; flex-shrink: 0; text-align: right; font-size: 0.85rem; font-weight: 600; }
+  .bar-val.lis { color: #ff8c00; }
+  .bar-val.sof { color: #8c52e8; }
+
+  /* Gender tab toggle */
+  .gender-tabs { display: flex; gap: 8px; margin-bottom: 20px; }
+  .tab-btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 2px solid #2a2a3a;
+    background: #181828;
+    color: #aaa;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .tab-btn.active { border-color: #ff8c00; color: #fff; background: rgba(255,140,0,0.1); }
+
+  /* Star display */
+  .stars-display { color: #ff8c00; font-size: 0.9rem; }
+
+  /* No votes */
+  .no-votes { text-align: center; color: #555; padding: 20px; font-size: 0.9rem; }
+
+  @media (min-width: 700px) {
+    .criteria-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="logo">🎃 HALLOWEEN 2025 — LIVE-ERGEBNISSE</div>
+  <div class="tagline">Echtzeit-Abstimmung · Lissabon 🇵🇹 vs. Sofia 🇧🇬</div>
+</div>
+
+<div class="counter-row">
+  <div class="counter-chip">👥 Teilnehmer: <span id="totalCount">0</span></div>
+  <div class="counter-chip m">👨 Männlich: <span id="mCount">0</span></div>
+  <div class="counter-chip f">👩 Weiblich: <span id="fCount">0</span></div>
+</div>
+
+<div class="winner-banner" id="winnerBanner">
+  <div class="winner-label">🏆 Gesamtsieger</div>
+  <div class="winner-name" id="winnerName">—</div>
+  <div class="scores-row">
+    <div class="score-pill lis" id="lisScore">🇵🇹 —</div>
+    <div class="score-pill sof" id="sofScore">🇧🇬 —</div>
+  </div>
+</div>
+
+<div class="gender-winners">
+  <div class="gw-card">
+    <div class="gw-label">👨 Männer wählen</div>
+    <div class="gw-gender">👨</div>
+    <div class="gw-winner" id="mWinner">—</div>
+    <div class="gw-score" id="mWinnerScore"></div>
+  </div>
+  <div class="gw-card">
+    <div class="gw-label">👩 Frauen wählen</div>
+    <div class="gw-gender">👩</div>
+    <div class="gw-winner" id="fWinner">—</div>
+    <div class="gw-score" id="fWinnerScore"></div>
+  </div>
+</div>
+
+<div class="section-title">📊 Bewertung je Kriterium</div>
+
+<div class="gender-tabs">
+  <button class="tab-btn active" onclick="setTab('all')" id="tab-all">Alle</button>
+  <button class="tab-btn" onclick="setTab('maennlich')" id="tab-maennlich">👨 Männlich</button>
+  <button class="tab-btn" onclick="setTab('weiblich')" id="tab-weiblich">👩 Weiblich</button>
+</div>
+
+<div class="criteria-grid" id="criteriaGrid"></div>
+
+<script>
+const socket = io();
+let currentTab = 'all';
+let lastResults = null;
+
+function setTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  if (lastResults) render(lastResults);
+}
+
+function stars(val) {
+  if (!val) return '—';
+  const full = Math.round(val);
+  return '★'.repeat(full) + '☆'.repeat(5 - full) + ' ' + val.toFixed(2);
+}
+
+function fmt(val) {
+  return val > 0 ? val.toFixed(2) : '—';
+}
+
+function render(data) {
+  lastResults = data;
+  const { total, genderCount, all, byGender, overall, overallByGender, criteria } = data;
+
+  document.getElementById('totalCount').textContent = total;
+  document.getElementById('mCount').textContent = genderCount.maennlich;
+  document.getElementById('fCount').textContent = genderCount.weiblich;
+
+  // Winner
+  const lisO = overall.lissabon || 0;
+  const sofO = overall.sofia || 0;
+  const winner = lisO >= sofO ? 'lissabon' : 'sofia';
+  const banner = document.getElementById('winnerBanner');
+  banner.className = 'winner-banner ' + (winner === 'lissabon' ? 'lis' : 'sof');
+  const wn = document.getElementById('winnerName');
+  wn.className = 'winner-name ' + (winner === 'lissabon' ? 'lis' : 'sof');
+  wn.textContent = total === 0 ? '—' : (winner === 'lissabon' ? '🇵🇹 Lissabon' : '🇧🇬 Sofia');
+  document.getElementById('lisScore').textContent = '🇵🇹 ' + (lisO > 0 ? lisO.toFixed(2) + ' / 5' : '—');
+  document.getElementById('sofScore').textContent = '🇧🇬 ' + (sofO > 0 ? sofO.toFixed(2) + ' / 5' : '—');
+
+  // Gender winners
+  const mL = overallByGender.maennlich.lissabon || 0;
+  const mS = overallByGender.maennlich.sofia || 0;
+  const fL = overallByGender.weiblich.lissabon || 0;
+  const fS = overallByGender.weiblich.sofia || 0;
+
+  function setGW(nameEl, scoreEl, l, s, count) {
+    if (count === 0) { nameEl.textContent = '—'; scoreEl.textContent = 'Noch keine Stimmen'; nameEl.className = 'gw-winner'; return; }
+    const w = l >= s ? 'lissabon' : 'sofia';
+    nameEl.className = 'gw-winner ' + (w === 'lissabon' ? 'lis' : 'sof');
+    nameEl.textContent = w === 'lissabon' ? '🇵🇹 Lissabon' : '🇧🇬 Sofia';
+    scoreEl.textContent = `Lis: ${l.toFixed(2)} · Sof: ${s.toFixed(2)}`;
+  }
+  setGW(document.getElementById('mWinner'), document.getElementById('mWinnerScore'), mL, mS, genderCount.maennlich);
+  setGW(document.getElementById('fWinner'), document.getElementById('fWinnerScore'), fL, fS, genderCount.weiblich);
+
+  // Criteria bars
+  const ratingsData = currentTab === 'all' ? all
+    : currentTab === 'maennlich' ? byGender.maennlich
+    : byGender.weiblich;
+  const genderCount2 = currentTab === 'all' ? total
+    : currentTab === 'maennlich' ? genderCount.maennlich
+    : genderCount.weiblich;
+
+  const grid = document.getElementById('criteriaGrid');
+  if (!criteria || criteria.length === 0) { grid.innerHTML = '<div class="no-votes">Warte auf Verbindung...</div>'; return; }
+
+  grid.innerHTML = criteria.map(c => {
+    const r = ratingsData[c.id] || { lissabon: 0, sofia: 0 };
+    const lisV = r.lissabon || 0;
+    const sofV = r.sofia || 0;
+    const lisW = (lisV / 5) * 100;
+    const sofW = (sofV / 5) * 100;
+    return `
+      <div class="criterion-card">
+        <div class="criterion-name">${c.label}</div>
+        <div class="bar-row">
+          <div class="bar-city">🇵🇹 Lissabon</div>
+          <div class="bar-wrap"><div class="bar-fill lis" style="width:${lisW}%"></div></div>
+          <div class="bar-val lis">${lisV > 0 ? lisV.toFixed(1) : '—'}</div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-city">🇧🇬 Sofia</div>
+          <div class="bar-wrap"><div class="bar-fill sof" style="width:${sofW}%"></div></div>
+          <div class="bar-val sof">${sofV > 0 ? sofV.toFixed(1) : '—'}</div>
+        </div>
+        ${genderCount2 === 0 ? '<div style="font-size:0.75rem;color:#555;margin-top:8px">Noch keine Bewertungen</div>' : ''}
+      </div>
+    `;
+  }).join('');
+}
+
+socket.on('results', render);
+</script>
+</body>
+</html>
